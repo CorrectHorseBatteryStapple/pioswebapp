@@ -13,7 +13,7 @@ public class WebConfig {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addViewControllers(ViewControllerRegistry registry) {
-				registry.addViewController("/").setViewName("forward:/index.html");
+				registry.addViewController("/").setViewName("forward:/static/index.html");
 			}
 		};
 	}
