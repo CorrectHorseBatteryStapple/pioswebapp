@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet id="20160326-0000" author="jk">
+		<createTable tableName="PRODUCT" schemaName="${schema.cpu}">
+			<column autoIncrement="true" name="ID_PRODUCT" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="PK_PRODUCT"/>
+			</column>
+			<column name="NAME" type="VARCHAR(50)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="TYPE" type="VARCHAR(50)" />
+			<column name="SERIAL_NUMBER" type="VARCHAR(50)" />
+			<column name="DIMENSION" type="VARCHAR(50)" />
+			<column name="IMAGE_PATH" type="VARCHAR(50)" />
+			<column name="STOCK_COUNT" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+			<column name="SOLD_COUNT" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+			<column name="FAVOURITE_COUNT" type="BIGINT">
+				<constraints nullable="false"/>
+			</column>
+			<column name="RATING" type="NUMBER(3,2)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="PRICE" type="NUMBER(10,2)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="ID_PRODUCT_CATEGORY" type="BIGINT">
+				<constraints nullable="false" references="${schema.cpu}.PRODUCT_CATEGORY(ID_PRODUCT_CATEGORY)" foreignKeyName="FK_PRODUCT_CATEGORY"/>
+			</column>
+			<column name="ID_CAR_BRAND" type="BIGINT">
+				<constraints nullable="false" references="${schema.cpu}.CAR_BRAND(ID_CAR_BRAND)" foreignKeyName="FK_CAR_BRAND"/>
+			</column>
+		</createTable>	
+	</changeSet>
+</databaseChangeLog>
