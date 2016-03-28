@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="2016032600000-0" author="jk">
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT_CATEGORY">
+            <column name="NAME" value="TUNING"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT_CATEGORY">
+            <column name="NAME" value="PERFORMANCE"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT_CATEGORY">
+            <column name="NAME" value="CASUAL"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT_CATEGORY">
+            <column name="NAME" value="TIRE"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT_CATEGORY">
+            <column name="NAME" value="ENGINE"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

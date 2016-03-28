@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="2016032800000-0" author="jk"> 
+        <insert schemaName="${schema.cpu}" tableName="USER">
+            <column name="USERNAME" value="administrator@mail.com.test"/>
+            <column name="PASSWORD" value="1234"/>
+            <column name="FIRST_NAME" value="Admin"/>
+            <column name="LAST_NAME" value="Administrator"/>
+            <column name="ADDRESS" value="Mountain View, USA"/>
+            <column name="PHONE_NUMBER" value="432-2134-234"/>
+            <column name="ID_ROLE" value="1"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="USER">
+            <column name="USERNAME" value="moderator@mail.com.test"/>
+            <column name="PASSWORD" value="1234"/>
+            <column name="FIRST_NAME" value="Mod"/>
+            <column name="LAST_NAME" value="Moderator"/>
+            <column name="ADDRESS" value="Mountain View, USA"/>
+            <column name="PHONE_NUMBER" value="432-2134-234"/>
+            <column name="ID_ROLE" value="2"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="USER">
+            <column name="USERNAME" value="peroperic@mail.com.test"/>
+            <column name="PASSWORD" value="1234"/>
+            <column name="FIRST_NAME" value="Pero"/>
+            <column name="LAST_NAME" value="Peric"/>
+            <column name="ADDRESS" value="Mountain View, USA"/>
+            <column name="PHONE_NUMBER" value="432-2134-234"/>
+            <column name="ID_ROLE" value="3"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="USER">
+            <column name="USERNAME" value="ivoivic@mail.com.test"/>
+            <column name="PASSWORD" value="1234"/>
+            <column name="FIRST_NAME" value="Ivo"/>
+            <column name="LAST_NAME" value="Ivic"/>
+            <column name="ADDRESS" value="Mountain View, USA"/>
+            <column name="PHONE_NUMBER" value="432-2134-234"/>
+            <column name="ID_ROLE" value="3"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

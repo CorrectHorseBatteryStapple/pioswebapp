@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="2016032600000-0" author="jk">
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Toyo tire"/>
+            <column name="TYPE" value="24"/>
+            <column name="SERIAL_NUMBER" value="1234567-1234"/>
+            <column name="DIMENSION" value="23x32x12"/>
+            <column name="IMAGE_PATH" value="/images/toyo-tire-24.png"/>
+            <column name="STOCK_COUNT" value="125"/>
+            <column name="SOLD_COUNT" value="12"/>
+            <column name="FAVOURITE_COUNT" value="11"/>
+            <column name="RATING" value="3.54"/>
+            <column name="PRICE" value="735.12"/>
+            <column name="ID_PRODUCT_CATEGORY" value="1"/>
+            <column name="ID_CAR_BRAND" value="1"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Exhaust part"/>
+            <column name="TYPE" value="14"/>
+            <column name="SERIAL_NUMBER" value="764124-1234"/>
+            <column name="DIMENSION" value="23x32x12"/>
+            <column name="IMAGE_PATH" value="/images/exhaust-24.png"/>
+            <column name="STOCK_COUNT" value="25"/>
+            <column name="SOLD_COUNT" value="2"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="2.79"/>
+            <column name="PRICE" value="735.12"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

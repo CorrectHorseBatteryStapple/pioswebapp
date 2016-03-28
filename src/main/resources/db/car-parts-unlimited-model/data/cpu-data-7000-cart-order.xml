@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="2016032800000-0" author="jk"> 
+        <insert schemaName="${schema.cpu}" tableName="CART_ORDER">
+            <column name="ORDER_TIMESTAMP" value="2015-03-31 12:25:45"/>
+            <column name="ID_ORDER_STATUS" value="1"/>
+            <column name="ID_USER" value="3"/>
+        </insert>
+
+        <insert schemaName="${schema.cpu}" tableName="CART_ORDER">
+            <column name="ORDER_TIMESTAMP" value="2015-04-30 22:25:45"/>
+            <column name="ID_ORDER_STATUS" value="2"/>
+            <column name="ID_USER" value="4"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

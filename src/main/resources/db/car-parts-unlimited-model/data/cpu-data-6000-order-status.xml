@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="2016032800000-0" author="jk"> 
+        <insert schemaName="${schema.cpu}" tableName="ORDER_STATUS">
+            <column name="STATUS" value="IN_CART"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="ORDER_STATUS">
+            <column name="STATUS" value="ORDERED"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="ORDER_STATUS">
+            <column name="STATUS" value="APPROVED"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="ORDER_STATUS">
+            <column name="STATUS" value="PAID"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="ORDER_STATUS">
+            <column name="STATUS" value="DONE"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
