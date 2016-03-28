@@ -1,5 +1,6 @@
 package hr.tvz.car.parts.shop.mock;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +14,9 @@ public class MockFactory {
      */
     public static List<Product> createMockProductList() {
         List<Product> mockProductList = new ArrayList<>();
-        mockProductList.add(new Product("Hauba", "H-515", "02534059234-534", "1x123x125", 254.23D));
-        mockProductList.add(new Product("Getriba", "G-515", "32645645-534", "43x13x25", 1254.23D));
-        mockProductList.add(new Product("Akumulator", "A-515", "344654567-534", "13x13x25", 154.23D));
+        mockProductList.add(new Product("Hauba", "H-515", "02534059234-534", "1x123x125", new BigDecimal(254.23D)));
+        mockProductList.add(new Product("Getriba", "G-515", "32645645-534", "43x13x25", new BigDecimal(1254.23D)));
+        mockProductList.add(new Product("Akumulator", "A-515", "344654567-534", "13x13x25", new BigDecimal(154.23D)));
         
         return mockProductList;
     }
