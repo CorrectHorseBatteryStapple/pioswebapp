@@ -16,7 +16,7 @@ import org.hibernate.annotations.Type;
 import org.joda.time.LocalDateTime;
 
 @Entity
-@Table(name = "CART_ORDER")
+@Table(name = "CART_ORDER", schema = "CPU")
 public class CartOrder {
 
     @Id
@@ -25,7 +25,7 @@ public class CartOrder {
     private Long id;
     
     @Column(name = "ORDER_TIMESTAMP")
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     private LocalDateTime timestamp;
     
     @ManyToOne
@@ -41,7 +41,7 @@ public class CartOrder {
 //        inverseJoinColumns = {@JoinColumn(name = "ID_PRODUCT", referencedColumnName = "ID_PRODUCT")})
 //    private List<Product> orderedProductsList;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "order")
-    private List<OrderProduct> ordeProductList;
+    private List<OrderProduct> orderProductList;
 
     public Long getId() {
         return id;
@@ -67,12 +67,12 @@ public class CartOrder {
         this.timestamp = timestamp;
     }
 
-    public List<OrderProduct> getOrdeProductList() {
-        return ordeProductList;
+    public List<OrderProduct> getOrderProductList() {
+        return orderProductList;
     }
 
-    public void setOrdeProductList(List<OrderProduct> ordeProductList) {
-        this.ordeProductList = ordeProductList;
+    public void setOrderProductList(List<OrderProduct> ordeProductList) {
+        this.orderProductList = ordeProductList;
     }
 
     public User getUser() {

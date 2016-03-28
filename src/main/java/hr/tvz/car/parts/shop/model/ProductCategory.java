@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name = "PRODOUCT_CATEGORY")
+@Table(name = "PRODUCT_CATEGORY", schema = "CPU")
 public class ProductCategory {
 
     @Id

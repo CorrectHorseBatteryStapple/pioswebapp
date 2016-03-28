@@ -1,4 +1,4 @@
-package hr.tvz.car.parts.shop.init;
+package hr.tvz.car.parts.shop.init.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

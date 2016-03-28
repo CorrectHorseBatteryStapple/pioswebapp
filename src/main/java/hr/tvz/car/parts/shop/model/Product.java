@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PRODOUCT")
+@Table(name = "PRODUCT", schema = "CPU")
 public class Product {
 
     @Id
@@ -57,8 +57,11 @@ public class Product {
     @JoinColumn(name = "ID_CAR_BRAND")
     private CarBrand carBrand;
 
+    public Product() {
+        //
+    }
+    
     public Product(String name, String type, String serialNumber, String dimension, BigDecimal price) {
-        super();
         this.name = name;
         this.type = type;
         this.serialNumber = serialNumber;
