@@ -2,7 +2,9 @@ package hr.tvz.car.parts.shop.model.dtofactory;
 
 import hr.tvz.car.parts.shop.model.CartOrder;
 import hr.tvz.car.parts.shop.model.OrderProduct;
+import hr.tvz.car.parts.shop.model.User;
 import hr.tvz.car.parts.shop.model.dto.CartOrderDto;
+import hr.tvz.car.parts.shop.model.dto.UserDto;
 
 public class DtoFactory {
 
@@ -18,6 +20,19 @@ public class DtoFactory {
             }
         }
         return cartOrderDto;
+    }
+    
+    public static UserDto transformUserToUserDto(User user) {
+        UserDto userDto = new UserDto();
+        if(user != null) {
+            userDto.setId(user.getId());
+            userDto.setFirstname(user.getFirstname());
+            userDto.setLastname(user.getLastname());
+            userDto.setUsername(user.getUsername());
+            userDto.setAddress(user.getAddress());
+            userDto.setPhoneNumber(user.getPhoneNumber());
+        }
+        return userDto;
     }
     
 }
