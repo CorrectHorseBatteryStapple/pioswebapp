@@ -21,8 +21,8 @@ public class LoginController {
     private UserService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public @ResponseBody SimpleCarPartBackendResponse authenticateUser(@RequestParam(required = true) String username,
-            @RequestParam(required = true) String password) {
+    public @ResponseBody SimpleCarPartBackendResponse authenticateUser(@RequestParam(required = false) String username,
+            @RequestParam(required = false) String password) {
         SimpleCarPartBackendResponse simpleCarPartBackendResponse = new SimpleCarPartBackendResponse();
         String statusMessage = "";
         if (username == null || password == null) {
@@ -36,7 +36,7 @@ public class LoginController {
             UserDto userDto = DtoFactory.transformUserToUserDto(tempUser);
             statusMessage = "Bingo! Uspjesna prijava!";
             simpleCarPartBackendResponse.setStatusMessage(statusMessage);
-            simpleCarPartBackendResponse.setObject(userDto);
+            simpleCarPartBackendResponse.setData(userDto);
         } else {
             statusMessage = "Greska: Korisnik " + username + " ne postoji ili je unesen krivi password";
             simpleCarPartBackendResponse.setStatusMessage(statusMessage);
