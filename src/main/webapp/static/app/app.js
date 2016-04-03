@@ -34,5 +34,27 @@
     			controller : 'ConfirmOrderController'
     		})
             .otherwise({redirectTo: '/'});
-    });
+            })
+
+
+            .run(function ($rootScope) {
+                $rootScope.userLoggedIn= false;
+
+                $rootScope.loginUser=function () {
+                    //$rootScope.userLoggedIn=!$rootScope.userLoggedIn;
+console.log("blabal2222");
+                } 
+                $rootScope.go=function () {
+                    
+                console.log("blabal2222");
+                } 
+                
+                console.log("blabal");
+            });
+
+            
+
+            
+
+
 }(angular));

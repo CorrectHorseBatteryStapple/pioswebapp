@@ -5,6 +5,7 @@
 	 */
 	var LandingController = function($scope){
 	    $scope.message = "This is landing page for anonymous page visit. Please register or sign up for further page access.";
+	    
 	    //console.log("landing-controller.js logging log", $route.current.locals.bla);
 	}
 
