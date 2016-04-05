@@ -37,24 +37,56 @@
             })
 
 
-            .run(function ($rootScope) {
-                $rootScope.userLoggedIn= false;
+
+
+            .run(function ($rootScope,$http,$window) {
+
+                $rootScope.usernameField="";
+                $rootScope.passwordField="";
 
                 $rootScope.loginUser=function () {
-                    //$rootScope.userLoggedIn=!$rootScope.userLoggedIn;
-console.log("blabal2222");
-                } 
-                $rootScope.go=function () {
+
                     
-                console.log("blabal2222");
-                } 
-                
-                console.log("blabal");
-            });
+                    $rootScope.userLoggedIn= false;
+                    
+                 
+                    var user=$rootScope.usernameField;
+                    var pass=$rootScope.passwordField;
 
-            
+                console.log("username: ",$rootScope.usernameField,"password: ",$rootScope.passwordField);
 
-            
+                var urlParams='?username=' + user + '&password=' + pass;
+               
+                $http.get('/login' + urlParams)
+                .then(function successResponce(responce) {
 
+                    console.log("success", responce.data)
+                    if(responce.data.data == null) {
+                        $window.alert("Korisnik ne postoji");
+                        return;
+                    }
+                    else{
+
+                        $rootScope.userLoggedIn=true;
+                        console.log("logged in state: ", $rootScope.userLoggedIn)
+                        $window.location.href="/#/search";
+                    }
+
+
+                }, function errorResponce(error) {
+                    console.log("Došlo je do greške kod pristupa stranici!",error);
+                    $rootScope.usernameField=false;
+
+                        
+                });
+          },
+
+            $rootScope.logoutUser=function(){
+
+                    $rootScope.userLoggedIn=null;
+                    $window.location.href="/#";
+                }    
+
+  });   
 
 }(angular));

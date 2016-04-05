@@ -12,4 +12,6 @@
 	LandingController.$inject = ['$scope'];
 	angular.module("carPartsApp.controllers").controller("LandingController", LandingController);
 
+	
+
 }(angular));
