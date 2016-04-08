@@ -2,56 +2,88 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-6">
+
+        <h2 class = "razmak">
+        {{landCtrl.message}} <br><br>
+         {{landCtrl.message2}}
+
+        </h2>
           
         <!--   <img src="../static/img/product_search_bg.jpg" alt="HTML5 Icon" style= "max-width:100%; max-height:100%;">  -->
        
         </div>
 
         <div class="col-md-6">
-          <h1>Sign Up</h1>
+          <h1>Sign Up </h1>
          <p>
            </br>
-           <form class="form-horizontal">
+           <form name="registerForm" class="form-horizontal">
+
               <div class="form-group">
-                <label for="username" class="col-sm-3 control-label">Username:</label>
-                <div class="col-sm-9">
-                  <input type="username" class="form-control" id="username" placeholder="Username">
+                <label for="username" class="col-sm-3 control-label">E-mail:</label>
+                <div ng-messages="registerForm.username.$error" class="col-sm-9">
+                  <input type="email" class="form-control" name="username" id="username" placeholder="Username" ng-model="landCtrl.formInfo.username" required / >
+                     <div ng-messages="registerForm.username.$error" ng-if="registerForm.username.$dirty">
+                        <div class="fill-in" ng-message="required">This field is required</div>
+                     </div>
                 </div>
               </div>
+
                <div class="form-group">
-                <label for="inputPassword" class="col-sm-3 control-label">Password:</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <label for="password" class="col-sm-3 control-label">Password:</label>
+                <div ng-messages="registerForm.password.$error" class="col-sm-9">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" ng-model="landCtrl.formInfo.password" required/>
+                  <div ng-messages="registerForm.password.$error" ng-if="registerForm.password.$dirty">
+                        <div class="fill-in" ng-message="required">This field is required</div>
+                     </div>
                 </div>
               </div>
+
                <div class="form-group">
-                <label for="inputEmail3" class="col-sm-3 control-label">First name:</label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="firstname" placeholder="First name">
+                <label for="firstName" class="col-sm-3 control-label">First name:</label>
+                <div ng-messages="registerForm.firstName.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" ng-model="landCtrl.formInfo.firstName" required/>
+                  <div ng-messages="registerForm.firstName.$error" ng-if="registerForm.firstName.$dirty">
+                        <div class="fill-in" ng-message="required">This field is required</div>
+                     </div>
                 </div>
               </div>
-               <div class="form-group">
-                <label for="lastname" class="col-sm-3 control-label">Last name:</label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="lastname" placeholder="Last name">
+
+              <div class="form-group">
+                <label for="lastName" class="col-sm-3 control-label">Last name:</label>
+                <div ng-messages="registerForm.lastName.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name" ng-model="landCtrl.formInfo.lastName" required/>
+                  <div ng-messages="registerForm.lastName.$error" ng-if="registerForm.lastName.$dirty">
+                        <div class="fill-in" ng-message="required">This field is required</div>
+                     </div>
                 </div>
               </div>
-               <div class="form-group">
+
+              <div class="form-group">
                 <label for="adress" class="col-sm-3 control-label">Adress:</label>
-                <div class="col-sm-9">
-                  <input type="email" class="form-control" id="adress" placeholder="Adress">
+                <div ng-messages="registerForm.adress.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="adress" id="adress" placeholder="Adress" ng-model="landCtrl.formInfo.adress" required/>
+                  <div ng-messages="registerForm.adress.$error" ng-if="registerForm.adress.$dirty">
+                        <div class="fill-in" ng-message="required">This field is required</div>
+                     </div>
                 </div>
               </div>
+
               <div class="form-group">
-                <label for="number" class="col-sm-3 control-label">Phone number:</label>
-                <div class="col-sm-9">
-                  <input type="password" class="form-control" id="number" placeholder="Phone number">
+                <label for="phoneNumber" class="col-sm-3 control-label">Phone number:</label>
+                <div ng-messages="registerForm.phoneNumber.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone number" ng-model="landCtrl.formInfo.phoneNumber" required/>
+                  <div ng-messages="registerForm.phoneNumber.$error" ng-if="registerForm.phoneNumber.$dirty">
+                        <div class="fill-in" ng-message="required">This field is required</div>
+                     </div>
                 </div>
               </div>
+
+               
               
               <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                  <button type="submit" class="btn btn-success">Sign Up</button>
+                  <button type="submit" ng-click="landCtrl.saveData()" class="btn btn-success">Sign Up </button>
                 </div>
               </div>
           </form>

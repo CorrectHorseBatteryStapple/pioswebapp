@@ -3,15 +3,17 @@
     angular.module("carPartsApp.controllers", []);
     angular.module("carPartsApp.services", []);
 
-    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services'])
+    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages'])
+  //  angular.module('carPartsApp', ['ngMessages']);
     
     // configure angular page router
     .config(function($routeProvider) {
+
         console.log("app.js init app config")
     	$routeProvider
     		.when('/', {
     			templateUrl : 'static/pages/landing.html',
-    			controller : 'LandingController'
+    			controller : 'LandingController as landCtrl'
                 // resolve : {
                 //     products: function(ProductService) {
                 //         //console.log("app.js resolve Products: ", ProductService.getProducts());
@@ -79,7 +81,7 @@
 
                         
                 });
-          },
+          }
 
             $rootScope.logoutUser=function(){
 
@@ -87,6 +89,42 @@
                     $window.location.href="/#";
                 }    
 
-  });   
+ 
+
+/*
+    function authInterceptor(API, auth) {
+  return {
+    // automatically attach Authorization header
+    request: function(config) {
+      return config;
+    },
+
+    // If a token was sent back, save it
+    response: function(res) {
+      return res;
+    },
+  }
+}
+
+function authService($window) {
+  var self = this;
+
+  // Add JWT methods here
+}
+
+ }
+
+
+
+
+  )
+            .factory('authInterceptor', authInterceptor)
+
+  .constant('API','http://localhost:8080/#/') 
+  .config(function($httpProvider) {
+  $httpProvider.interceptors.push('authInterceptor');
+
+  */
+})  
 
 }(angular));
