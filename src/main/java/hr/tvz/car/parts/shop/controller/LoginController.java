@@ -1,5 +1,7 @@
 package hr.tvz.car.parts.shop.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +49,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public SimpleCarPartBackendResponse registerUser2(@RequestBody RegistrationDto registrationDto) {
+    public SimpleCarPartBackendResponse registerUser2(@Valid @RequestBody RegistrationDto registrationDto) {
         SimpleCarPartBackendResponse response = new SimpleCarPartBackendResponse();
         User tempUser = DtoFactory.createUserFrom(registrationDto);
         User savedUser = userService.save(tempUser);
