@@ -6,4 +6,5 @@ public interface UserService {
 
     User authenticateUser(String username, String password);
 
+    User save(User user);
 }
