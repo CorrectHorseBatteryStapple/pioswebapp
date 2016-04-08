@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import hr.tvz.car.parts.shop.model.User;
+import hr.tvz.car.parts.shop.model.dto.LoginDto;
 import hr.tvz.car.parts.shop.model.dto.RegistrationDto;
 import hr.tvz.car.parts.shop.model.dto.SimpleCarPartBackendResponse;
 import hr.tvz.car.parts.shop.model.dto.UserDto;
@@ -24,25 +24,19 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public @ResponseBody SimpleCarPartBackendResponse authenticateUser(@RequestParam(required = false) String username,
-            @RequestParam(required = false) String password) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public @ResponseBody SimpleCarPartBackendResponse authenticateUser(@Valid @RequestBody LoginDto loginDto) {
         SimpleCarPartBackendResponse simpleCarPartBackendResponse = new SimpleCarPartBackendResponse();
         String statusMessage = "";
-        if (username == null || password == null) {
-            statusMessage = "Super secret login page. Error: you need to send some data, username and password is empty";
-            simpleCarPartBackendResponse.setStatusMessage(statusMessage);
-            return simpleCarPartBackendResponse;
-        }
 
-        User tempUser = userService.authenticateUser(username, password);
+        User tempUser = userService.authenticateUser(loginDto.getUsername(), loginDto.getPassword());
         if (tempUser != null) {
             UserDto userDto = DtoFactory.transformUserToUserDto(tempUser);
             statusMessage = "Bingo! Uspjesna prijava!";
             simpleCarPartBackendResponse.setStatusMessage(statusMessage);
             simpleCarPartBackendResponse.setData(userDto);
         } else {
-            statusMessage = "Greska: Korisnik " + username + " ne postoji ili je unesen krivi password";
+            statusMessage = "Greska: Korisnik " + loginDto.getUsername() + " ne postoji ili je unesen krivi password";
             simpleCarPartBackendResponse.setStatusMessage(statusMessage);
         }
         return simpleCarPartBackendResponse;
