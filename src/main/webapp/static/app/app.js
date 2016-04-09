@@ -3,7 +3,7 @@
     angular.module("carPartsApp.controllers", []);
     angular.module("carPartsApp.services", []);
 
-    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages','ui.bootstrap'])
+    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages','ui.bootstrap','LocalStorageModule'])
   //  angular.module('carPartsApp', ['ngMessages']);
     
     // configure angular page router
@@ -45,16 +45,15 @@
 
 
 
-            .run(function ($rootScope,$http,$window) {
+            .run(function ($rootScope,$http,$window,localStorageService) {
 
                 $rootScope.usernameField="";
                 $rootScope.passwordField="";
 
+                $rootScope.userLoggedIn= localStorageService.get("isLoggedIn");
+
                 $rootScope.loginUser=function () {
 
-                    
-                    $rootScope.userLoggedIn= false;
-                    
                  
                     var user=$rootScope.usernameField;
                     var pass=$rootScope.passwordField;
@@ -75,6 +74,9 @@
                     else{
 
                         $rootScope.userLoggedIn=true;
+                        
+                         localStorageService.set("isLoggedIn", true);
+                         
                         console.log("logged in state: ", $rootScope.userLoggedIn)
                         $window.location.href="/#/search";
                     }
@@ -90,8 +92,11 @@
 
             $rootScope.logoutUser=function(){
 
+                    
                     $rootScope.userLoggedIn=null;
+                    localStorageService.clearAll();
                     $window.location.href="/#";
+
                 }    
 
  
