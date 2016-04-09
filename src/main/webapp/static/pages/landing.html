@@ -1,6 +1,6 @@
 <div class="container">
       <!-- Example row of columns -->
-      <div class="row">
+      <div ng-show="!landCtrl.isRegistered" class="row">
         <div class="col-md-6">
 
         <h2 class = "razmak">
@@ -15,8 +15,8 @@
 
         <div class="col-md-6">
           <h1>Sign Up </h1>
-         <p>
-           </br>
+       
+           <br>
            <form name="registerForm" class="form-horizontal">
 
               <div class="form-group">
@@ -40,30 +40,30 @@
               </div>
 
                <div class="form-group">
-                <label for="firstName" class="col-sm-3 control-label">First name:</label>
-                <div ng-messages="registerForm.firstName.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" ng-model="landCtrl.formInfo.firstName" required/>
-                  <div ng-messages="registerForm.firstName.$error" ng-if="registerForm.firstName.$dirty">
+                <label for="firstname" class="col-sm-3 control-label">First name:</label>
+                <div ng-messages="registerForm.firstname.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" ng-model="landCtrl.formInfo.firstname" required/>
+                  <div ng-messages="registerForm.firstname.$error" ng-if="registerForm.firstname.$dirty">
                         <div class="fill-in" ng-message="required">This field is required</div>
                      </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="lastName" class="col-sm-3 control-label">Last name:</label>
-                <div ng-messages="registerForm.lastName.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name" ng-model="landCtrl.formInfo.lastName" required/>
-                  <div ng-messages="registerForm.lastName.$error" ng-if="registerForm.lastName.$dirty">
+                <label for="lastname" class="col-sm-3 control-label">Last name:</label>
+                <div ng-messages="registerForm.lastname.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name" ng-model="landCtrl.formInfo.lastname" required/>
+                  <div ng-messages="registerForm.lastname.$error" ng-if="registerForm.lastname.$dirty">
                         <div class="fill-in" ng-message="required">This field is required</div>
                      </div>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="adress" class="col-sm-3 control-label">Adress:</label>
-                <div ng-messages="registerForm.adress.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="adress" id="adress" placeholder="Adress" ng-model="landCtrl.formInfo.adress" required/>
-                  <div ng-messages="registerForm.adress.$error" ng-if="registerForm.adress.$dirty">
+                <label for="address" class="col-sm-3 control-label">Adress:</label>
+                <div ng-messages="registerForm.address.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="address" id="address" placeholder="Address" ng-model="landCtrl.formInfo.address" required/>
+                  <div ng-messages="registerForm.address.$error" ng-if="registerForm.address.$dirty">
                         <div class="fill-in" ng-message="required">This field is required</div>
                      </div>
                 </div>
@@ -86,10 +86,20 @@
                   <button type="submit" ng-click="landCtrl.saveData()" class="btn btn-success">Sign Up </button>
                 </div>
               </div>
-          </form>
-          </p>
 
-          </br></br>
+          </form>
+          </div>
+
+          <br><br>
+       </div>
+     
+
+       <div class="row" ng-show="landCtrl.isRegistered">
+         <h2 class = "razmak">
+        {{landCtrl.message}} <br><br>
+         {{landCtrl.message2}}
+
+        </h2>
        </div>
       
       </div>

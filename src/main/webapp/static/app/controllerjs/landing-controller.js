@@ -3,7 +3,7 @@
 	/**
 	 * LandingController for anonymous page visit
 */
-	var LandingController = function($scope){
+	var LandingController = function($scope,$http){
 	    
 
 	   var vm = this;
@@ -11,10 +11,21 @@
 	    vm.message2 = "Please register or sign up for further page access.";
 	    	vm.formInfo = {}
 
-
+	    	vm.isRegistered = false;
 	        vm.saveData=function(){
 
 	    	console.log("landing-controller.js logging log", vm.formInfo);
+
+	    	var url = "/register"
+
+
+	    	$http.post(url, vm.formInfo).then(function successCallback(result) {
+					console.log("success: ", result.data)
+					vm.isRegistered = true;
+			}, function errorCallback(error) {
+					console.log("error: ", error)
+					vm.isRegistered = false;
+			})
 			
 
 	    }
@@ -23,7 +34,8 @@
 	    
 	  
 
-	LandingController.$inject = ['$scope'];
+	LandingController.$inject = ['$scope','$http'];
+
 	angular.module("carPartsApp.controllers").controller("LandingController", LandingController);
 
 

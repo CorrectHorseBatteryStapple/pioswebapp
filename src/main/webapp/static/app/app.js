@@ -3,7 +3,7 @@
     angular.module("carPartsApp.controllers", []);
     angular.module("carPartsApp.services", []);
 
-    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages'])
+    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages','ui.bootstrap'])
   //  angular.module('carPartsApp', ['ngMessages']);
     
     // configure angular page router
@@ -35,6 +35,10 @@
     			templateUrl : 'static/pages/confirm_order.html',
     			controller : 'ConfirmOrderController'
     		})
+            .when('/admin', {
+                templateUrl : 'static/pages/admin.html',
+                controller : 'administrationController as adminCtrl'
+            })
             .otherwise({redirectTo: '/'});
             })
 
@@ -54,12 +58,13 @@
                  
                     var user=$rootScope.usernameField;
                     var pass=$rootScope.passwordField;
+                    var loginData={ username:user,password:pass};
 
                 console.log("username: ",$rootScope.usernameField,"password: ",$rootScope.passwordField);
 
-                var urlParams='?username=' + user + '&password=' + pass;
+               // var urlParams='?username=' + user + '&password=' + pass;
                
-                $http.get('/login' + urlParams)
+                $http.post('/login', loginData)
                 .then(function successResponce(responce) {
 
                     console.log("success", responce.data)

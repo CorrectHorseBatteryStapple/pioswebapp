@@ -1,0 +1,26 @@
+{
+  "name": "pioswebapp",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Josip Kovaček",
+    "Matej Jemrić"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "angular-messages": "^1.5.3",
+    "bootstrap": "^3.3.6",
+    "angular-bootstrap": "^1.3.1"
+  }
+}

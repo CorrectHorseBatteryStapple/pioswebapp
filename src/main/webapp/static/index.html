@@ -1,49 +1,4 @@
-<!-- 
-<!DOCTYPE html>
-<html ng-app="carPartsApp">
-    <head>
-      <!-- load bootstrap and fontawesome via CDN --
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-      <link rel="stylesheet" href="static/app/app.css">
-    </head>
-    <body>
 
-        <!-- HEADER AND NAVBAR --
-        <header>
-            <nav class="navbar navbar-default">
-	            <div class="container">
-	                <div class="navbar-header">
-	                    <a class="navbar-brand" href="/"> Welcome to Car Parts Unlimited</a>
-	                </div>
-
-	                <ul class="nav navbar-nav navbar-right">
-	                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-	                    <li><a href="#search"><i class="fa fa-sign-in"></i> Log in</a></li>
-	                    <li><a href="#order"><i class="fa fa-comment"></i> Sign up</a></li>
-	                </ul>
-	            </div>
-            </nav>
-        </header>
-
-        <!-- MAIN CONTENT AND INJECTED VIEWS --
-        <div id="main">
-            <!-- this is where content will be injected --
-			      <div ng-view />
-        </div>
-
-      <!-- load angular and angular route via CDN --
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-      <script src="static/app/app.js"></script>
-      <script src="static/app/services.js"></script>
-      <script src="static/app/controllerjs/landing-controller.js"></script>
-      <script src="static/app/controllerjs/search-product-controller.js"></script>
-      <script src="static/app/controllerjs/confirm-order.js"></script>
-      <noscript>Please enable JavaScript to use this app.</noscript>
-    </body>
-</html>
--->
 
 <!DOCTYPE html>
 <html lang="en" ng-app="carPartsApp" >
@@ -59,12 +14,14 @@
     <title>Car Parts Unlimited</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/app/app.css" rel="stylesheet">
+
+    <link href="/static/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <link href="/static/app/app.css" rel="stylesheet">
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="static/app/app.css">
 
     <!-- Custom styles for this template -->
@@ -72,7 +29,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../static/js/ie-emulation-modes-warning.js"></script>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -88,7 +45,7 @@
     <!--navbar ako je korisnik ulogiran .-->
 
       <!-- Fixed navbar -->
-    <nav ng-show="loginController.isLoggedIn()" class="navbar navbar-default navbar-fixed-top">
+    <nav ng-show="userLoggedIn" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -119,7 +76,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Default</a></li>
-             <button ng-click="loginController.logoutUser()" type="submit" class="btn btn-primary">Log out</button>
+             <button ng-click="logoutUser()" type="submit" class="btn btn-primary">Log out</button>
             <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -129,7 +86,7 @@
 
     <!-- Navbar ako korisnik nije ulogiran -->
 
-       <nav ng-show="!loginController.isLoggedIn()" class="navbar navbar-inverse navbar-fixed-top">
+       <nav ng-show="!userLoggedIn" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -149,7 +106,7 @@
             <div class="form-group">
               <input type="password" placeholder="Password" ng-model="passwordField" class="form-control">
             </div>
-            <button ng-click="loginController.loginUser()" type="submit" class="btn btn-primary">Log in</button>
+            <button ng-click="loginUser()" type="submit" class="btn btn-primary">Log in</button>
           </form>
 
         </div>
@@ -181,22 +138,23 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../static/assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="/static/bower_components/angular/angular.js"></script>
+    <script src="/static/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+   
     <!-- load angular and angular route via CDN -->
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-      <script src="static/app/app.js"></script>
-      <script src="static/app/services.js"></script>
+    
       <!-- <script src="static/app/controllerjs/loginController.js"</script> -->
-      <script src="static/app/controllerjs/landing-controller.js"></script>
-      <script src="static/app/controllerjs/search-product-controller.js"></script>
-      <script src="static/app/controllerjs/confirm-order.js"></script>
-       
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
+    
+      <script src="/static/bower_components/angular-messages/angular-messages.js"></script>
+      <script src="/static/bower_components/angular-route/angular-route.js"></script>
+
+      <script src="/static/app/app.js"></script>
+      <script src="/static/app/services.js"></script>
+      <script src="/static/app/controllerjs/landing-controller.js"></script>
+      <script src="/static/app/controllerjs/search-product-controller.js"></script>
+      <script src="/static/app/controllerjs/confirm-order.js"></script>
    
 
       <noscript>Please enable JavaScript to use this app.</noscript>
