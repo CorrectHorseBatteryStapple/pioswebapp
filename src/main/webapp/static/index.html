@@ -44,8 +44,8 @@
  
     <!--navbar ako je korisnik ulogiran .-->
 
-      <!-- Fixed navbar -->
-    <nav ng-show="userLoggedIn" class="navbar navbar-default navbar-fixed-top">
+   <div ng-controller="loginController as loginCtrl">   <!-- Fixed navbar -->
+    <nav ng-show="loginCtrl.userLoggedIn" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -76,7 +76,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Default</a></li>
-             <button ng-click="logoutUser()" type="submit" class="btn btn-primary">Log out</button>
+             <button ng-click="loginCtrl.logoutUser()" type="submit" class="btn btn-primary">Log out</button>
             <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -86,7 +86,7 @@
 
     <!-- Navbar ako korisnik nije ulogiran -->
 
-       <nav ng-show="!userLoggedIn" class="navbar navbar-inverse navbar-fixed-top">
+       <nav ng-show="!loginCtrl.userLoggedIn" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -99,19 +99,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" >
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control" ng-model="usernameField">
+              <input type="text" placeholder="Email" class="form-control" ng-model="loginCtrl.loginData.username">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" ng-model="passwordField" class="form-control">
+              <input type="password" placeholder="Password" ng-model="loginCtrl.loginData.password" class="form-control">
             </div>
-            <button ng-click="loginUser()" type="submit" class="btn btn-primary">Log in</button>
+            <button ng-click="loginCtrl.loginUser()" type="submit" class="btn btn-primary">Log in</button>
           </form>
 
         </div>
       </div>
     </nav>
+
+    </div>
 
       <!-- MAIN CONTENT AND INJECTED VIEWS -->
           
@@ -152,6 +154,7 @@
       <script src="/static/bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
       <script src="/static/app/app.js"></script>
       <script src="/static/app/services.js"></script>
+      <script src="/static/app/controllerjs/login-controller.js"></script>
       <script src="/static/app/controllerjs/landing-controller.js"></script>
       <script src="/static/app/controllerjs/search-product-controller.js"></script>
       <script src="/static/app/controllerjs/confirm-order.js"></script>

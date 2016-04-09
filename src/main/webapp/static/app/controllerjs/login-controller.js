@@ -1,5 +1,60 @@
 (function(angular){
 
+
+	var loginController = function($http,$window,localStorageService){
+
+
+				var vm = this;
+
+				vm.loginData = {}
+
+                vm.userLoggedIn= localStorageService.get("isLoggedIn");
+
+                vm.loginUser=function () {
+
+                 
+	                console.log("data: ",vm.loginData);
+
+	               // var urlParams='?username=' + user + '&password=' + pass;
+	               
+	                $http.post('/login', vm.loginData)
+	                .then(function successResponce(responce) {
+
+	                    console.log("success", responce.data)
+	                    if(responce.data.data == null) {
+	                        $window.alert("Korisnik ne postoji");
+	                        return;
+	                    }
+	                    else{
+
+	                        vm.userLoggedIn=true;
+	                        
+	                         localStorageService.set("isLoggedIn", true);
+	                         
+	                        console.log("logged in state: ", vm.userLoggedIn)
+	                        $window.location.href="/#/search";
+	                    }
+
+
+	                }, function errorResponce(error) {
+	                    console.log("Došlo je do greške kod pristupa stranici!",error);
+	                    
+
+	                        
+	                });
+         	 }
+
+            vm.logoutUser=function(){
+
+                    
+                    vm.userLoggedIn=null;
+                    localStorageService.clearAll();
+                    $window.location.href="/#";
+
+                }  
+
+	}
+
 	/**
 	 * LandingController for anonymous page visit
 	 */
@@ -33,9 +88,9 @@
 	    $scope.message = "This is login controller page for anonymous page visit. Please register or sign up for further page access.";
 	  */
 	    //console.log("landing-controller.js logging log", $route.current.locals.bla);
-	}
+	
 
-	loginController.$inject = ['$scope'];
+	loginController.$inject = ['$http','$window','localStorageService'];
 	angular.module("carPartsApp.controllers").controller("loginController", loginController);
 
 
