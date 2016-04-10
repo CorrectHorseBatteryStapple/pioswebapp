@@ -9,6 +9,10 @@
 	   var vm = this;
 	    vm.message = "Welcome to Car Parts Unlimited.";
 	    vm.message2 = "Please register or sign up for further page access.";
+	    vm.successRegisterMessage = "Registration successfull!";
+	    vm.successRegisterMessage2 = "Welcome to Car Parts Unlimited,";
+	    vm.successRegisterMessage3 = "please log in so we can get started!";
+
 	    	vm.formInfo = {}
 
 	    	vm.isRegistered = false;

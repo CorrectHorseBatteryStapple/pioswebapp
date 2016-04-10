@@ -3,7 +3,7 @@
     angular.module("carPartsApp.controllers", []);
     angular.module("carPartsApp.services", []);
 
-    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages','ui.bootstrap','LocalStorageModule'])
+    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages','ui.bootstrap','LocalStorageModule','ui.bootstrap'])
   //  angular.module('carPartsApp', ['ngMessages']);
     
     // configure angular page router
