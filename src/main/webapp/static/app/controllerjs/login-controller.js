@@ -48,6 +48,9 @@
 	                         localStorageService.set("firstNameUser",response.data.data.firstname);
 	                         localStorageService.set("lastNameUser",response.data.data.lastname);
 
+	                         vm.firstName = localStorageService.get("firstNameUser");
+                             vm.lastName = localStorageService.get("lastNameUser");
+
 	                         var role = response.data.data.role;
 	                          localStorageService.set("userRole", role);
 
