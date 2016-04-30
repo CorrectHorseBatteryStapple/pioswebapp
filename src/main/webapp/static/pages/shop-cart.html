@@ -8,23 +8,23 @@
 
     <hr>
     <div class="row">
-        <div class="col-md-4 text-center">
-            <em>Choose product category...</em>
-        </div>
-        <div class="col-md-4 text-center">
-            <em>Select product</em>
-            <div class="well row" ng-repeat="item in availableProducts track by $index">
-                <em>{{item}}</em>
-            </div>
-        </div>
-        <div class="col-md-4 text-center">
-            <em>Choose car...</em>
-        </div>
+    	<div class="col-md-4 text-center">
+    		<em>Choose product category...</em>
+    	</div>
+    	<div class="col-md-4 text-center">
+    		<em>Select product</em>
+		    <div class="well row" ng-repeat="item in availableProducts track by $index">
+		    	<em>{{item}}</em>
+		    </div>
+    	</div>
+    	<div class="col-md-4 text-center">
+    		<em>Choose car...</em>
+    	</div>
     </div>
-</div>-->
+</div> -->
 
 <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 main">
-          
+          <h1 class="page-header">Shopping cart:</h1>
 
           <!--<div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -49,17 +49,6 @@
             </div>
           </div>-->
 
-           <h1 class="page-header">Search product:</h1>
-
-          <form class="" role="search">
-              <div class="form-group">
-                <input ng-model="searchKeyword" type="text" class="form-control" placeholder="Search">
-              </div>
-  
-          </form> 
-
-          
-
           <h2 class="sub-header"></h2>
           <div class="table-responsive">
             <table class="table table-striped"  >
@@ -71,30 +60,28 @@
                   <th>Serial number</th>
                   <th>Dimension</th>
                   <th>Price</th>
-                  <th></th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody >
-              <tr ng-repeat="item in availableProducts  | filter: searchKeyword ">
-               <!-- <tr ng-repeat="item in availableProducts track by $index"> -->
+                <tr ng-repeat="item in availableProducts track by $index">
                   <td>{{item.id}}</td>
                   <td>{{item.name}}</td>
                   <td>{{item.type}}</td>
                   <td>{{item.serialNumber}}</td>
                   <td>{{item.dimension}}</td>
                   <td>{{item.price}}</td>
-                  <td> <a ng-click = "searchController.goTodetailsUrl(item.id)" class="btn btn_xs btn-info" role="button">Details</a> </td>
-                  <td> <a href="#" class="btn btn_xs btn-success" role="button">Add</a> </td>
-
-
+                  <td> <a href="" class="btn btn_xs btn-danger" role="button">Remove</a> </td>
+                  
                 </tr>
                 
                 
               </tbody>
             </table>
           </div>
-          
+           <a href="/#/search" class="btn btn_xs btn-default" role="button">Return to search more products</a> 
+           <a href="#/ending" class="btn btn_xs btn-success" role="button">Buy</a>
 
         </div>
+
+
     </div>

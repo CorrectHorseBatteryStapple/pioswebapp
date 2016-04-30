@@ -15,8 +15,25 @@
 		            deferred.reject("service.js:getProducts error")
 		        });
 		        return deferred.promise;
+			},
+
+			getProduct: function(id) {
+			 $http.get('/product' + id)
+		        .then(function successCallback(result) {
+		        	console.log("service.js:getProducts result: ", result.data);
+		            deferred.resolve(result.data);
+		        }, function errorCallback(errorLog) {
+		        	console.log("service.js:getProducts error", errorLog);
+		            deferred.reject("service.js:getProducts error")
+		        });
+		        return deferred.promise;
 			}
+
+			
+
+
 		}
+
 
 	});
 }(angular));
