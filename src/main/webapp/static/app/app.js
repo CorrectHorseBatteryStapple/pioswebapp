@@ -35,6 +35,7 @@
                 templateUrl : 'static/pages/shop-cart.html',
                 controller : 'SearchProductController as searchController'
             })
+
             .when('/search/product-details/:id?', {
 
                 templateUrl : 'static/pages/product-details.html',
@@ -50,6 +51,11 @@
                 templateUrl : 'static/pages/admin.html',
                 controller : 'administrationController as adminCtrl'
             })
+            .when('/admin/addNewItem', {
+                templateUrl : 'static/pages/addNewItem.html',
+                controller : 'administrationController as adminCtrl'
+            })
+
             .otherwise({redirectTo: '/'});
             })
 

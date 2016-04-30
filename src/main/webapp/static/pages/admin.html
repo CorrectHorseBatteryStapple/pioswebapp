@@ -9,11 +9,11 @@
 
            <h1 class="page-header">Search product:</h1>
            
-
+           
 
           <form class="" role="search">
               <div class="form-group">
-                <input ng-model="searchController.searchKeyword" type="text" class="form-control" placeholder="Search">
+                <input ng-model="adminCtrl.searchKeyword" type="text" class="form-control" placeholder="Search">
               </div>
   
           </form> 
@@ -31,13 +31,13 @@
                   <th>Serial number</th>
                   <th>Dimension</th>
                   <th>Price</th>
-                  <th ng-show="!searchController.isAdmin"></th>
-                  <th ng-show="!searchController.isAdmin"></th>
-                  
+                 
+                  <th ng-show="adminCtrl.isAdmin"></th>
+                  <th ng-show="adminCtrl.isAdmin"></th>
                 </tr>
               </thead>
               <tbody >
-              <tr ng-repeat="item in availableProducts  | filter: searchController.searchKeyword ">
+              <tr ng-repeat="item in availableProducts  | filter: adminCtrl.searchKeyword ">
                <!-- <tr ng-repeat="item in availableProducts track by $index">  -->
                   <td>{{item.id}}</td>
                   <td>{{item.name}}</td>
@@ -45,9 +45,10 @@
                   <td>{{item.serialNumber}}</td>
                   <td>{{item.dimension}}</td>
                   <td>{{item.price}}</td>
-                  <td ng-show="!searchController.isAdmin"> <a ng-click = "searchController.goTodetailsUrl(item.id)" class="btn btn_xs btn-info" role="button">Details</a> </td>
-                  <td ng-show="!searchController.isAdmin"> <a href="#" class="btn btn_xs btn-success" role="button">Add</a> </td>
-                
+                 
+                  
+                  <td ng-show="adminCtrl.isAdmin"> <a href="#" class="btn btn_xs btn-warning" role="button">Edit</a> </td>
+                  <td ng-show="adminCtrl.isAdmin"> <a href="#" class="btn btn_xs btn-danger" role="button">Remove</a> </td>
 
                 </tr>
                 

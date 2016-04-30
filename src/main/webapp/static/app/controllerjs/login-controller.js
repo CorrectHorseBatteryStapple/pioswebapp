@@ -1,7 +1,7 @@
 (function(angular){
 
 
-	var loginController = function($http,$window,localStorageService,$rootScope, $route){
+	var loginController = function($http,$window,localStorageService,$rootScope){
 
 					 $rootScope.items = [
        				"The first choice!",
@@ -15,6 +15,7 @@
 
 				vm.loginData = {}
 				
+				vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
 
                 vm.userLoggedIn= localStorageService.get("isLoggedIn");
                 vm.firstName = localStorageService.get("firstNameUser");
@@ -42,15 +43,25 @@
 	                    else{
 
 	                        vm.userLoggedIn=true;
-							 localStorageService.set("userRole", response.data.data.role);
+							
 	                         localStorageService.set("isLoggedIn", true);
 	                         localStorageService.set("firstNameUser",response.data.data.firstname);
 	                         localStorageService.set("lastNameUser",response.data.data.lastname);
-             				 vm.firstName = localStorageService.get("firstNameUser");
-                			 vm.lastName = localStorageService.get("lastNameUser");
-	                         
-	                        console.log("logged in state: ", vm.userLoggedIn)
+
+	                         var role = response.data.data.role;
+	                          localStorageService.set("userRole", role);
+
+	                          if(role == "Administrator"){
+
+	                          	$window.location.href="/#/admin";
+	                          }
+	                          else{
+
 	                        $window.location.href="/#/search";
+
+
+	                    	}
+	                    	 console.log("logged in state: ", vm.userLoggedIn)
 	                    }
 
 
@@ -108,7 +119,7 @@
 	    //console.log("landing-controller.js logging log", $route.current.locals.bla);
 	
 
-	loginController.$inject = ['$http','$window','localStorageService','$rootScope', '$route'];
+	loginController.$inject = ['$http','$window','localStorageService','$rootScope'];
 	angular.module("carPartsApp.controllers").controller("loginController", loginController);
 
 
