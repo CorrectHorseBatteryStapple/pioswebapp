@@ -24,4 +24,10 @@ public class ProductServiceImpl implements ProductService {
         return repository.findOne(id);
     }
 
+    @Override
+    public Product updateProduct(Product product) {
+        repository.save(product);
+        return null;
+    }
+
 }
