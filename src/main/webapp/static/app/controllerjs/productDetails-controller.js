@@ -3,31 +3,38 @@
 	/**
 	 * SearchProductController
 	 */
-	var productDetailsController = function($scope, ProductService,$route){
+	var productDetailsController = function($scope,$route,$http){
+
+		$scope.product= {};
 
 		var vm = this;
 
-		console.log($route.current.params.id);
+		
 
 		var productID = $route.current.params.id;
 
-		getProductDetails();
-
 		
 
-		function getProductDetails(){
-			ProductService.getProduct(productID).then(function(result) {
-                $scope.product = result;
-            }, function(error){
-                console.log("#routeProvider error", error);
-            });
+		var getProductDetails = function (productID){
+			$http.get('/shop/product/' + productID)
+	        .then(function successResponse(response) {
+	        console.log("getProductsDetails result: ", response.data);
+	         $scope.product = response.data;
+	        },
+
+	        function errorResponse(response){
+	         console.log("getProductsDetails errorResponse: ", response);
+
+	        });
+
 		}
 
-		
-	    
+		getProductDetails(productID);
+
+
 	}
 
-	productDetailsController.$inject = ['$scope','ProductService','$route'];
+	productDetailsController.$inject = ['$scope','$route','$http'];
 	angular.module("carPartsApp.controllers").controller("productDetailsController", productDetailsController);
 
 }(angular));

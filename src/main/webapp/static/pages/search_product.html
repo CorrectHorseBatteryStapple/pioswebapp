@@ -53,7 +53,7 @@
 
           <form class="" role="search">
               <div class="form-group">
-                <input ng-model="searchKeyword" type="text" class="form-control" placeholder="Search">
+                <input ng-model="searchController.searchKeyword" type="text" class="form-control" placeholder="Search">
               </div>
   
           </form> 
@@ -76,8 +76,8 @@
                 </tr>
               </thead>
               <tbody >
-              <tr ng-repeat="item in availableProducts  | filter: searchKeyword ">
-               <!-- <tr ng-repeat="item in availableProducts track by $index"> -->
+              <tr ng-repeat="item in availableProducts  | filter: searchController.searchKeyword ">
+               <!-- <tr ng-repeat="item in availableProducts track by $index">  -->
                   <td>{{item.id}}</td>
                   <td>{{item.name}}</td>
                   <td>{{item.type}}</td>

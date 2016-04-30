@@ -3,40 +3,51 @@
 	/**
 	 * SearchProductController
 	 */
-	var SearchProductController = function($scope, ProductService,$location){
+	var SearchProductController = function($scope,$location,$window,$http){
+
+		$scope.availableProducts = [];
 
 		var vm = this;
 		
 	    $scope.message = "This is search product page for signed in users";
-	    getProducts();
+	    
 
+	    vm.searchKeyword = "";
 
+		var getProducts = function (){
+			$http.get('/shop/products')
+	        .then(function successResponse(response) {
+	        console.log("getProducts result: ", response.data);
+	        $scope.availableProducts = response.data;
+	        },
 
-		function getProducts(){
-			ProductService.getProducts().then(function(result) {
-                $scope.availableProducts = result;
-            }, function(error){
-                console.log("#routeProvider error", error);
-            });
+	        function errorResponse(response){
+	         console.log("getProducts errorResponse: ", response);
+
+	        });
+
 		}
+
+		getProducts();
 
 		vm.goTodetailsUrl = function(id){
 
-			console.log("nesto");
+			
 
-			var url = "/search/product-details/";
+			var url = "#/search/product-details/";
 
 			var urlFinal = url + id ;
 
-			$location.path(urlFinal);
+			$window.location.href=urlFinal;
+			//$location.path(urlFinal);
 
-			console.log(urlFinal);
+			console.log("search controller ", urlFinal);
 
 
 		}
 	}
 
-	SearchProductController.$inject = ['$scope', 'ProductService','$location'];
+	SearchProductController.$inject = ['$scope','$location','$window','$http'];
 	angular.module("carPartsApp.controllers").controller("SearchProductController", SearchProductController);
 
 }(angular));

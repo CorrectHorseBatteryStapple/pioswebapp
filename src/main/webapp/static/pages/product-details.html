@@ -1,27 +1,7 @@
 
-<div class="container">
+<div class="container slika">
 
-<!-- <div class="search-product">
-  
-    <h2>This is product_search page embedded in index.html</h2>
-    <p>angular controller says: {{message}}</p>
 
-    <hr>
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <em>Choose product category...</em>
-        </div>
-        <div class="col-md-4 text-center">
-            <em>Select product</em>
-            <div class="well row" ng-repeat="item in availableProducts track by $index">
-                <em>{{item}}</em>
-            </div>
-        </div>
-        <div class="col-md-4 text-center">
-            <em>Choose car...</em>
-        </div>
-    </div>
-</div>-->
 
          <h1 class="page-header">Product details: </h1>
 
@@ -34,126 +14,46 @@
 
                </div>
 
-               <div class="table-responsive">
-                <table class="table table-striped"  >
+            <div class="col-md-6">
+               <div class="">
+                <table class="table table-responsive table-striped"  >
                   <thead >
                     <tr>
                       <th>#:</th>
                       <td>{{product.id}}</td>
                     </tr>
                     <tr>
-                      <th>#:</th>
+                      <th>Name:</th>
                       <td>{{product.name}}</td>
                     </tr>
                     <tr>
-                      <th>#:</th>
+                      <th>Type:</th>
                       <td>{{product.type}}</td>
                     </tr>
+                    <tr>
+                      <th>Serial number:</th>
+                      <td>{{product.serialNumber}}</td>
+                    </tr>
+                    <tr>
+                      <th>Dimension:</th>
+                      <td>{{product.dimension}}</td>
+                    </tr>
+                    <tr>
+                      <th>Price:</th>
+                      <td>{{product.price}}</td>
+                    </tr>
+                    <tr>
+                      <th>Rating:</th>
+                      <td>{{product.rating}}</td>
+                    </tr>
+
+
                     </thead>
               </table>
               </div>
 
-              <div class="col-md-6">
-                <div class="table-responsive">
-                <table class="table table-striped"  >
-                  <thead >
-                    <tr>
-                      <th>#</th>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Serial number</th>
-                      <th>Dimension</th>
-                      <th>Price</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody >
-                  <tr ng-repeat="item in availableProducts  | filter: searchKeyword ">
-                   <!-- <tr ng-repeat="item in availableProducts track by $index"> -->
-                      <td>{{item.id}}</td>
-                      <td>{{item.name}}</td>
-                      <td>{{item.type}}</td>
-                      <td>{{item.serialNumber}}</td>
-                      <td>{{item.dimension}}</td>
-                      <td>{{item.price}}</td>
-                       <td> <a href="#" class="btn btn_xs btn-info" role="button">Details</a> </td>
-                      <td> <a href="#" class="btn btn_xs btn-success" role="button">Add</a> </td>
+              <a href="/#/search" class="btn btn_xs btn-default" role="button">Back</a> 
+              </div>
 
-
-                </tr>
-                
-                
-              </tbody>
-            </table>
-          </div>
-             </div>
-
-
-
-<div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 main">
-          
-
-          <!--<div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>-->
-
-         
-
-          <h2 class="sub-header"></h2>
-          <div class="table-responsive">
-            <table class="table table-striped"  >
-              <thead >
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th>Serial number</th>
-                  <th>Dimension</th>
-                  <th>Price</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody >
-              <tr ng-repeat="item in availableProducts  | filter: searchKeyword ">
-               <!-- <tr ng-repeat="item in availableProducts track by $index"> -->
-                  <td>{{item.id}}</td>
-                  <td>{{item.name}}</td>
-                  <td>{{item.type}}</td>
-                  <td>{{item.serialNumber}}</td>
-                  <td>{{item.dimension}}</td>
-                  <td>{{item.price}}</td>
-                   <td> <a href="#" class="btn btn_xs btn-info" role="button">Details</a> </td>
-                  <td> <a href="#" class="btn btn_xs btn-success" role="button">Add</a> </td>
-
-
-                </tr>
-                
-                
-              </tbody>
-            </table>
-          </div>
-          
-
-        </div>
+            
     </div>
