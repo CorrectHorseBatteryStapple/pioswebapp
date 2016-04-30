@@ -13,10 +13,15 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository repository;
-    
+
     @Override
     public List<Product> findProducts() {
         return repository.findAll();
+    }
+
+    @Override
+    public Product findProduct(Long id) {
+        return repository.findOne(id);
     }
 
 }
