@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import hr.tvz.car.parts.shop.model.CarBrand;
 import hr.tvz.car.parts.shop.model.Product;
 import hr.tvz.car.parts.shop.model.ProductCategory;
+import hr.tvz.car.parts.shop.model.dto.SimpleCarPartBackendResponse;
 import hr.tvz.car.parts.shop.service.ProductService;
 import hr.tvz.car.parts.shop.service.codebook.CarBrandService;
 import hr.tvz.car.parts.shop.service.codebook.ProductCategoryService;
@@ -54,6 +55,12 @@ public class CarPartsShopController {
     @RequestMapping(value = "/product/edit", method = RequestMethod.POST)
     public @ResponseBody Product getProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
+    }
+
+    @RequestMapping(value = "/product/delete", method = RequestMethod.POST)
+    public @ResponseBody SimpleCarPartBackendResponse deleteProduct(@PathVariable("id") Long id) {
+        productService.deleteProduct(id);
+        return new SimpleCarPartBackendResponse();
     }
 
 }
