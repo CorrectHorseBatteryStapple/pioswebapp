@@ -15,6 +15,7 @@
 
 				vm.loginData = {}
 				
+				vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
 
                 vm.userLoggedIn= localStorageService.get("isLoggedIn");
                 vm.firstName = localStorageService.get("firstNameUser");
@@ -42,14 +43,25 @@
 	                    else{
 
 	                        vm.userLoggedIn=true;
-							 localStorageService.set("userRole", response.data.data.role);
+							
 	                         localStorageService.set("isLoggedIn", true);
 	                         localStorageService.set("firstNameUser",response.data.data.firstname);
 	                         localStorageService.set("lastNameUser",response.data.data.lastname);
-	                         
-	                         
-	                        console.log("logged in state: ", vm.userLoggedIn)
+
+	                         var role = response.data.data.role;
+	                          localStorageService.set("userRole", role);
+
+	                          if(role == "Administrator"){
+
+	                          	$window.location.href="/#/admin";
+	                          }
+	                          else{
+
 	                        $window.location.href="/#/search";
+
+
+	                    	}
+	                    	 console.log("logged in state: ", vm.userLoggedIn)
 	                    }
 
 
