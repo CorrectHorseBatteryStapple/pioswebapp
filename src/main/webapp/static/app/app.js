@@ -39,6 +39,8 @@
 
                 templateUrl : 'static/pages/product-details.html',
                 controller : 'productDetailsController as detailsController'
+
+
             })
     		.when('/order', {
     			templateUrl : 'static/pages/confirm_order.html',
