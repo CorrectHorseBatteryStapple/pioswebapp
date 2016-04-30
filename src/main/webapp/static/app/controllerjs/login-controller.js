@@ -1,18 +1,29 @@
 (function(angular){
 
 
-	var loginController = function($http,$window,localStorageService){
+	var loginController = function($http,$window,localStorageService,$rootScope){
+
+					 $rootScope.items = [
+       				"The first choice!",
+       				 "And another choice for you.",
+    			    "but wait! A third!"
+  					  ];
 
 
 				var vm = this;
+				
 
 				vm.loginData = {}
-
+				
                 vm.userLoggedIn= localStorageService.get("isLoggedIn");
+                vm.firstName = localStorageService.get("firstNameUser");
+                vm.lastName = localStorageService.get("lastNameUser");
+                
+
 
                 vm.loginUser=function () {
-
-                 
+                	
+                 	
 	                console.log("data: ",vm.loginData);
 
 	               // var urlParams='?username=' + user + '&password=' + pass;
@@ -30,8 +41,11 @@
 	                    else{
 
 	                        vm.userLoggedIn=true;
-	                        
+	
 	                         localStorageService.set("isLoggedIn", true);
+	                         localStorageService.set("firstNameUser",responce.data.data.firstname);
+	                         localStorageService.set("lastNameUser",responce.data.data.lastname);
+	                         
 	                         
 	                        console.log("logged in state: ", vm.userLoggedIn)
 	                        $window.location.href="/#/search";
@@ -92,7 +106,7 @@
 	    //console.log("landing-controller.js logging log", $route.current.locals.bla);
 	
 
-	loginController.$inject = ['$http','$window','localStorageService'];
+	loginController.$inject = ['$http','$window','localStorageService','$rootScope'];
 	angular.module("carPartsApp.controllers").controller("loginController", loginController);
 
 
