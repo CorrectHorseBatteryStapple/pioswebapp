@@ -32,6 +32,7 @@ public class DtoFactory {
             userDto.setUsername(user.getUsername());
             userDto.setAddress(user.getAddress());
             userDto.setPhoneNumber(user.getPhoneNumber());
+            userDto.setRole(user.getRole().getName());
         }
         return userDto;
     }
