@@ -3,11 +3,13 @@
 	/**
 	 * SearchProductController
 	 */
-	var SearchProductController = function($scope,$location,$window,$http){
+	var SearchProductController = function($scope,$location,$window,$http,localStorageService){
 
 		$scope.availableProducts = [];
 
 		var vm = this;
+
+		vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
 		
 	    $scope.message = "This is search product page for signed in users";
 	    
@@ -47,7 +49,7 @@
 		}
 	}
 
-	SearchProductController.$inject = ['$scope','$location','$window','$http'];
+	SearchProductController.$inject = ['$scope','$location','$window','$http','localStorageService'];
 	angular.module("carPartsApp.controllers").controller("SearchProductController", SearchProductController);
 
 }(angular));

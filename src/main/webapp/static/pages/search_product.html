@@ -1,53 +1,11 @@
 
 <div class="container">
 
-<!-- <div class="search-product">
-  
-    <h2>This is product_search page embedded in index.html</h2>
-    <p>angular controller says: {{message}}</p>
-
-    <hr>
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <em>Choose product category...</em>
-        </div>
-        <div class="col-md-4 text-center">
-            <em>Select product</em>
-            <div class="well row" ng-repeat="item in availableProducts track by $index">
-                <em>{{item}}</em>
-            </div>
-        </div>
-        <div class="col-md-4 text-center">
-            <em>Choose car...</em>
-        </div>
-    </div>
-</div>-->
 
 <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 main">
           
 
-          <!--<div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>-->
+    
 
            <h1 class="page-header">Search product:</h1>
 
@@ -85,7 +43,7 @@
                   <td>{{item.dimension}}</td>
                   <td>{{item.price}}</td>
                   <td> <a ng-click = "searchController.goTodetailsUrl(item.id)" class="btn btn_xs btn-info" role="button">Details</a> </td>
-                  <td> <a href="#" class="btn btn_xs btn-success" role="button">Add</a> </td>
+                  <td ng-show="!searchController.isAdmin"> <a href="#" class="btn btn_xs btn-success" role="button">Add</a> </td>
 
 
                 </tr>

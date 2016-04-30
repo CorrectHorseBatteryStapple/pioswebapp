@@ -15,6 +15,7 @@
 
 				vm.loginData = {}
 				
+
                 vm.userLoggedIn= localStorageService.get("isLoggedIn");
                 vm.firstName = localStorageService.get("firstNameUser");
                 vm.lastName = localStorageService.get("lastNameUser");
@@ -29,22 +30,22 @@
 	               // var urlParams='?username=' + user + '&password=' + pass;
 	               
 	                $http.post('/login', vm.loginData)
-	                .then(function successResponce(responce) {
+	                .then(function successResponse(response) {
 
-	                    console.log("success", responce)
+	                    console.log("success", response)
                     	// JWT token
-                    	//$http.defaults.headers.common.Authorization = 'Bearer ' + responce.data.token;
-	                    if(responce.data.data == null) {
+                    	//$http.defaults.headers.common.Authorization = 'Bearer ' + response.data.token;
+	                    if(response.data.data == null) {
 	                        $window.alert("Korisnik ne postoji");
 	                        return;
 	                    }
 	                    else{
 
 	                        vm.userLoggedIn=true;
-	
+							 localStorageService.set("userRole", response.data.data.role);
 	                         localStorageService.set("isLoggedIn", true);
-	                         localStorageService.set("firstNameUser",responce.data.data.firstname);
-	                         localStorageService.set("lastNameUser",responce.data.data.lastname);
+	                         localStorageService.set("firstNameUser",response.data.data.firstname);
+	                         localStorageService.set("lastNameUser",response.data.data.lastname);
 	                         
 	                         
 	                        console.log("logged in state: ", vm.userLoggedIn)
@@ -52,7 +53,7 @@
 	                    }
 
 
-	                }, function errorResponce(error) {
+	                }, function errorResponse(error) {
 	                    console.log("Došlo je do greške kod pristupa stranici!",error);
 	                    
 
