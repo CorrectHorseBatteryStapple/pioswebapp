@@ -20,7 +20,9 @@
 	                $http.post('/login', vm.loginData)
 	                .then(function successResponce(responce) {
 
-	                    console.log("success", responce.data)
+	                    console.log("success", responce)
+                    	// JWT token
+                    	//$http.defaults.headers.common.Authorization = 'Bearer ' + responce.data.token;
 	                    if(responce.data.data == null) {
 	                        $window.alert("Korisnik ne postoji");
 	                        return;

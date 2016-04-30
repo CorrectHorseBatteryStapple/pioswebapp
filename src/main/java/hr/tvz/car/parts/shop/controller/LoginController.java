@@ -1,5 +1,8 @@
 package hr.tvz.car.parts.shop.controller;
 
+import java.util.Date;
+
+import javax.servlet.ServletException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,8 @@ import hr.tvz.car.parts.shop.model.dto.SimpleCarPartBackendResponse;
 import hr.tvz.car.parts.shop.model.dto.UserDto;
 import hr.tvz.car.parts.shop.model.dtofactory.DtoFactory;
 import hr.tvz.car.parts.shop.service.UserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 @RestController
 @RequestMapping(value = "/")
@@ -25,7 +30,7 @@ public class LoginController {
     private UserService userService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public @ResponseBody SimpleCarPartBackendResponse authenticateUser(@Valid @RequestBody LoginDto loginDto) {
+    public @ResponseBody SimpleCarPartBackendResponse authenticateUser(@Valid @RequestBody LoginDto loginDto) throws ServletException {
         SimpleCarPartBackendResponse simpleCarPartBackendResponse = new SimpleCarPartBackendResponse();
         String statusMessage = "";
 
@@ -35,9 +40,14 @@ public class LoginController {
             statusMessage = "Bingo! Uspjesna prijava!";
             simpleCarPartBackendResponse.setStatusMessage(statusMessage);
             simpleCarPartBackendResponse.setData(userDto);
+
+            String jwtToken = Jwts.builder().setSubject(tempUser.getFirstname()).claim("roles", tempUser.getRole().getName()).setIssuedAt(new Date())
+                    .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
+            System.out.println("JWT token: " + jwtToken);
+            simpleCarPartBackendResponse.setToken(jwtToken);
         } else {
             statusMessage = "Greska: Korisnik " + loginDto.getUsername() + " ne postoji ili je unesen krivi password";
-            simpleCarPartBackendResponse.setStatusMessage(statusMessage);
+            throw new ServletException(statusMessage);
         }
         return simpleCarPartBackendResponse;
     }

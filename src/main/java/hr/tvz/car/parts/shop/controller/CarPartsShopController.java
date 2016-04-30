@@ -15,31 +15,31 @@ import hr.tvz.car.parts.shop.service.codebook.CarBrandService;
 import hr.tvz.car.parts.shop.service.codebook.ProductCategoryService;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/shop")
 public class CarPartsShopController {
-	
+
     @Autowired
-    private CarBrandService carBrandService;
-    
+    private CarBrandService        carBrandService;
+
     @Autowired
     private ProductCategoryService productCategoryService;
-    
+
     @Autowired
-    private ProductService productService;
-    
+    private ProductService         productService;
+
     @RequestMapping(value = "/car-brands")
     public @ResponseBody List<CarBrand> getCarBrands() {
         return carBrandService.findCarBrands();
     }
-    
+
     @RequestMapping(value = "/product-categories")
     public @ResponseBody List<ProductCategory> getProductCategories() {
         return productCategoryService.findProductCategories();
     }
-    
+
     @RequestMapping(value = "/products")
     public @ResponseBody List<Product> getProducts() {
         return productService.findProducts();
     }
-    
+
 }
