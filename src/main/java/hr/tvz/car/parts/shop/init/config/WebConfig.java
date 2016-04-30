@@ -11,14 +11,14 @@ import hr.tvz.car.parts.shop.filter.JwtFilter;
 @Configuration
 public class WebConfig {
 
-    @Bean
-    public FilterRegistrationBean jwtFilter() {
-        final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        // registrationBean.setFilter(new JwtFilter());
-        // registrationBean.addUrlPatterns("/shop/*", "/cart/*, ");
-
-        return registrationBean;
-    }
+    // @Bean
+    // public FilterRegistrationBean jwtFilter() {
+    // final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+    // registrationBean.setFilter(new JwtFilter());
+    // registrationBean.addUrlPatterns("/shop/*", "/cart/*, ");
+    //
+    // return registrationBean;
+    // }
 
     @Bean
     public WebMvcConfigurerAdapter forwardToIndex() {
