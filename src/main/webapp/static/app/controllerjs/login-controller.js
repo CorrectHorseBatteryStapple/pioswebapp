@@ -1,7 +1,7 @@
 (function(angular){
 
 
-	var loginController = function($http,$window,localStorageService,$rootScope){
+	var loginController = function($http,$window,localStorageService,$rootScope, $route){
 
 					 $rootScope.items = [
        				"The first choice!",
@@ -46,7 +46,8 @@
 	                         localStorageService.set("isLoggedIn", true);
 	                         localStorageService.set("firstNameUser",response.data.data.firstname);
 	                         localStorageService.set("lastNameUser",response.data.data.lastname);
-	                         
+             				 vm.firstName = localStorageService.get("firstNameUser");
+                			 vm.lastName = localStorageService.get("lastNameUser");
 	                         
 	                        console.log("logged in state: ", vm.userLoggedIn)
 	                        $window.location.href="/#/search";
@@ -107,7 +108,7 @@
 	    //console.log("landing-controller.js logging log", $route.current.locals.bla);
 	
 
-	loginController.$inject = ['$http','$window','localStorageService','$rootScope'];
+	loginController.$inject = ['$http','$window','localStorageService','$rootScope', '$route'];
 	angular.module("carPartsApp.controllers").controller("loginController", loginController);
 
 
