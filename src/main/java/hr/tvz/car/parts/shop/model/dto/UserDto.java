@@ -1,7 +1,5 @@
 package hr.tvz.car.parts.shop.model.dto;
 
-import javax.persistence.Column;
-
 public class UserDto {
 
     private Long   id;

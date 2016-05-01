@@ -1,7 +1,5 @@
 package hr.tvz.car.parts.shop.model.dto;
 
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 public class RegistrationDto {

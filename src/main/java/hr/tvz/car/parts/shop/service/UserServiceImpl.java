@@ -3,7 +3,6 @@ package hr.tvz.car.parts.shop.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import hr.tvz.car.parts.shop.model.Role;
 import hr.tvz.car.parts.shop.model.User;
 import hr.tvz.car.parts.shop.repository.UserRepository;
 import hr.tvz.car.parts.shop.service.codebook.RoleService;
@@ -14,10 +13,10 @@ public class UserServiceImpl implements UserService {
     private static final String ROLE_USER = "User";
 
     @Autowired
-    private UserRepository repository;
+    private UserRepository      repository;
 
     @Autowired
-    private RoleService    roleService;
+    private RoleService         roleService;
 
     @Override
     public User authenticateUser(String username, String password) {
