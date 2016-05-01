@@ -1,6 +1,3 @@
-2016-05-01 16:21:35 jdbc[12]: exception
+2016-05-01 18:35:50 jdbc[12]: exception
 org.h2.jdbc.JdbcSQLException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
 select count(*) from PUBLIC.DATABASECHANGELOGLOCK [42102-191]
-2016-05-01 17:24:19 jdbc[12]: exception
-org.h2.jdbc.JdbcSQLException: Value too long for column "IMAGE_PATH VARCHAR(50)": "'http://www.silverfoxtractorspares.com/ekmps/shops/jws8408/images/david-brown-tractor-engine-spin-on-oil-filter-10857-p.jpg' (122)"; SQL statement:
-insert into CPU.product (id_product, active, id_car_brand, dimension, favourite_count, image_path, name, price, id_product_category, rating, serial_number, sold_count, stock_count, type) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) [22001-191]

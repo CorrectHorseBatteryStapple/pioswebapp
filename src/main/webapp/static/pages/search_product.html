@@ -39,7 +39,7 @@
               <tbody >
               <tr ng-repeat="item in availableProducts  | filter: searchController.searchKeyword ">
                <!-- <tr ng-repeat="item in availableProducts track by $index">  -->
-                  <td>{{item.id}}</td>
+                  <td>{{$index+1}}</td>
                   <td>{{item.name}}</td>
                   <td>{{item.type}}</td>
                   <td>{{item.serialNumber}}</td>
