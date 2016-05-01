@@ -22,13 +22,13 @@
               </thead>
               <tbody >
                 <tr ng-repeat="item in cartCtrl.cart.cartProductList track by $index">
-                  <td>{{item.id}}</td>
+                  <td>{{$index+1}}</td>
                   <td>{{item.name}}</td>
                   <td>{{item.type}}</td>
                   <td>{{item.serialNumber}}</td>
                   <td>{{item.dimension}}</td>
                   <td>{{item.price}}</td>
-                  <td> <a href="" class="btn btn_xs btn-danger" role="button">Remove</a> </td>
+                  <td> <a ng-click = "cartCtrl.removeItemFromCart(item.id,$index)" class="btn btn_xs btn-danger" role="button">Remove</a> </td>
                   
                 </tr>
                 

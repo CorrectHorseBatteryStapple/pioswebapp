@@ -27,10 +27,35 @@
 	getCart();
 
 
-	
+		vm.removeItemFromCart = function(productID,index) {
+
+			var urlDelete = "/cart/update/delete/";
+			var userID = localStorageService.get("userId");
+
+			console.log('Remove from cart zapocet');
+
+			$http.get(urlDelete + userID + "/" + productID )
+			.then(function successResponse(response){
+				console.log("cart remove success", response);
+					vm.cart.cartProductList.splice(index,1);
+
+					//$window.location.href="#/shop-cart";
+					
+			}),
+			function errorResponce(response){
+				console.log("cart remove error", response);
+
+			}
+
+			}
+
+			
 
 
-}
+		}
+
+
+
 
 	cartController.$inject = ['$scope','$location','$window','$http','localStorageService','growl'];
 	angular.module("carPartsApp.controllers").controller("cartController", cartController);
