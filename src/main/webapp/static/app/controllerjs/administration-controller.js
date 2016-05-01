@@ -57,11 +57,47 @@
 
 
 		vm.deleteItem = function(id){
-			var urlDelete = "/product/delete";
+			var urlDelete = "/shop/product/delete/";
 			$http.get(urlDelete + id);
 
 			$window.location.href = "#/admin";
 		}
+
+
+		vm.formInfo = {}
+
+		vm.addItem = function(){
+
+			console.log("admin-controller.js logging log", vm.formInfo);
+
+			var urlAdd = "/product/edit";
+
+			$http.post(urlAdd, vm.formInfo).then(function successCallback(result) {
+					console.log("success: ", result.data)
+					
+			}, function errorCallback(error) {
+					console.log("error: ", error)
+					
+			})
+
+		}
+
+		vm.editItem = function(id) {
+
+
+			console.log("admin-controller.js edit log");
+
+			var urlEdit = "#/admin/administrationEdit/";
+
+			var urlEditFinal = urlEdit + id ;
+
+			$window.location.href=urlEditFinal;
+			//$location.path(urlFinal);
+
+			console.log("search controller ", urlEditFinal);
+
+		}
+
 
 
 	}

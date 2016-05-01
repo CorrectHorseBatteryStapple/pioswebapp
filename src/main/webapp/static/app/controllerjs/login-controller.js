@@ -15,7 +15,7 @@
 
 				vm.loginData = {}
 				
-				
+				vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
 
                 vm.userLoggedIn= localStorageService.get("isLoggedIn");
                 vm.firstName = localStorageService.get("firstNameUser");

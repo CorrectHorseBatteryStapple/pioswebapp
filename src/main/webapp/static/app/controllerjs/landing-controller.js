@@ -16,6 +16,8 @@
 	    	vm.formInfo = {}
 
 	    	vm.isRegistered = false;
+
+	    	
 	        vm.saveData=function(){
 
 	    	console.log("landing-controller.js logging log", vm.formInfo);

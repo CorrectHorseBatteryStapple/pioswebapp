@@ -51,6 +51,10 @@
                 templateUrl : 'static/pages/admin.html',
                 controller : 'administrationController as adminCtrl'
             })
+            .when('/admin/administrationEdit/:id?', {
+                templateUrl : 'static/pages/administrationEdit.html',
+                controller : 'administrationEditController as adminEditCtrl'
+            })
             .when('/admin/addNewItem', {
                 templateUrl : 'static/pages/addNewItem.html',
                 controller : 'administrationController as adminCtrl'
@@ -58,7 +62,6 @@
 
             .otherwise({redirectTo: '/'});
             })
-
 
 
 }(angular));
