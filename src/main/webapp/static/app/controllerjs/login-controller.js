@@ -45,6 +45,7 @@
 	                        vm.userLoggedIn=true;
 							
 	                         localStorageService.set("isLoggedIn", true);
+	                         localStorageService.set("userId",response.data.data.id);
 	                         localStorageService.set("firstNameUser",response.data.data.firstname);
 	                         localStorageService.set("lastNameUser",response.data.data.lastname);
 

@@ -16,6 +16,13 @@
 
             <div class="col-md-8">
                <form name="addNewItemForm" class="form-horizontal">
+
+               <div class="form-group">
+                <label for="id" class="col-sm-3 control-label">#:</label>
+                <div ng-messages="addForm.id.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="id" id="id"  placeholder="id" ng-model="adminEditCtrl.product.id" disabled / >
+                </div>
+              </div>
                
                <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Name:</label>
@@ -37,123 +44,64 @@
                   <input type="text" class="form-control" name="serialNumber" id="serialNumber"  placeholder="Serial number" ng-model="adminEditCtrl.product.serialNumber" required / >
                 </div>
               </div>
-                    
-                    <tr>
-                      <th>Type:</th>
-                      <td>{{product.type}}</td>
-                    </tr>
-                    <tr>
-                      <th>Serial number:</th>
-                      <td>{{product.serialNumber}}</td>
-                    </tr>
-                    <tr>
-                      <th>Dimension:</th>
-                      <td>{{product.dimension}}</td>
-                    </tr>
-                    <tr>
-                      <th>Price:</th>
-                      <td>{{product.price}}</td>
-                    </tr>
-                    <tr>
-                      <th>Rating:</th>
-                      <td>{{product.rating}}</td>
-                    </tr>
-
-
-                    </thead>
-              </table>
-              </form>
-
-              <a href="/#/admin" class="btn btn_xs btn-default" role="button">Back</a> 
-              </div>
-
-              <form name="addNewItemForm" class="form-horizontal">
-
-              <div class="form-group">
-                <label for="name" class="col-sm-3 control-label">Name:</label>
-                <div ng-messages="addForm.name.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Name" ng-model="adminCtrl.formInfo.name" required / >
-                     
-                </div>
-              </div>
-
-               <div class="form-group">
-                <label for="type" class="col-sm-3 control-label">Type:</label>
-                <div ng-messages="addForm.type.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="type" id="type" placeholder="Type" ng-model="adminCtrl.formInfo.type" required / >
-                     
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="serialNumber" class="col-sm-3 control-label">Serial number:</label>
-                <div ng-messages="addForm.serialNumber.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="serialNumber" id="serialNumber" placeholder="Serial number" ng-model="adminCtrl.formInfo.serialNumber" required / >
-                     
-                </div>
-              </div>
 
               <div class="form-group">
                 <label for="dimension" class="col-sm-3 control-label">Dimension:</label>
                 <div ng-messages="addForm.dimension.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="dimension" id="dimension" placeholder="Dimension" ng-model="adminCtrl.formInfo.dimension" required / >
-                     
+                  <input type="text" class="form-control" name="dimension" id="dimension"  placeholder="Dimension" ng-model="adminEditCtrl.product.dimension" required / >
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="imagePath" class="col-sm-3 control-label">Image path:</label>
                 <div ng-messages="addForm.imagePath.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="imagePath" id="imagePath" placeholder="Image path" ng-model="adminCtrl.formInfo.imagePath" required / >
-                     
+                  <input type="text" class="form-control" name="imagePath" id="imagePath"  placeholder="Image path" ng-model="adminEditCtrl.product.imagePath" required / >
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="stockCount" class="col-sm-3 control-label">Stock count:</label>
                 <div ng-messages="addForm.stockCount.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="stockCount" id="stockCount" placeholder="Stock count" ng-model="adminCtrl.formInfo.stockCount" required / >
-                     
+                  <input type="text" class="form-control" name="stockCount" id="stockCount"  placeholder="Stock count"  required ng-model="adminEditCtrl.product.stockCount"  / >
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="soldCount" class="col-sm-3 control-label">Sold count:</label>
                 <div ng-messages="addForm.soldCount.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="soldCount" id="soldCount" placeholder="Sold count" ng-model="adminCtrl.formInfo.soldCount" required / >
-                     
+                  <input type="text" class="form-control" name="soldCount" id="soldCount"  placeholder="Sold count"  disabled ng-model="adminEditCtrl.product.soldCount"  / >
                 </div>
               </div>
 
-              <div class="form-group">
+               <div class="form-group">
                 <label for="rating" class="col-sm-3 control-label">Rating:</label>
                 <div ng-messages="addForm.rating.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="rating" id="rating" placeholder="Rating" ng-model="adminCtrl.formInfo.rating" required / >
-                     
+                  <input type="text" class="form-control" name="rating" id="rating"  placeholder="Rating" disabled ng-model="adminEditCtrl.product.rating"  / >
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="price" class="col-sm-3 control-label">Price:</label>
                 <div ng-messages="addForm.price.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="price" id="price" placeholder="Price" ng-model="adminCtrl.formInfo.price" required / >
-                     
+                  <input type="text" class="form-control" name="price" id="price"  placeholder="Price" required ng-model="adminEditCtrl.product.price"  / >
                 </div>
               </div>
-
-            
-
-              
-
-               
-              
-              <div class="form-group">
+                    
+                    
+                <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                  <button type="submit" ng-click="adminCtrl.addItem()" class="btn btn-primary">Add </button>
+                  <a href="/#/admin" class="btn btn_xs btn-default" role="button">Back</a> 
+                  <button type="submit" ng-click="adminCtrl.addItem()" class="btn btn-success">Finish edit </button>
                 </div>
               </div>
 
-          </form>
+                   
+              </form>
+
+              
+              </div>
+
+          
 
             
     </div>

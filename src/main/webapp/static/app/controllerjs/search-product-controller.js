@@ -3,7 +3,7 @@
 	/**
 	 * SearchProductController
 	 */
-	var SearchProductController = function($scope,$location,$window,$http,localStorageService){
+	var SearchProductController = function($scope,$location,$window,$http,localStorageService,growl){
 
 		$scope.availableProducts = [];
 
@@ -47,9 +47,20 @@
 
 
 		}
+
+
+		vm.addToCart = function(id) {
+
+			var urlCart = "/update";
+
+			growl.success("<b>Item </b> has been added to your cart.");
+
+
+		}
+
 	}
 
-	SearchProductController.$inject = ['$scope','$location','$window','$http','localStorageService'];
+	SearchProductController.$inject = ['$scope','$location','$window','$http','localStorageService','growl'];
 	angular.module("carPartsApp.controllers").controller("SearchProductController", SearchProductController);
 
 }(angular));

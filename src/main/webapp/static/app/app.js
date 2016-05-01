@@ -3,11 +3,11 @@
     angular.module("carPartsApp.controllers", []);
     angular.module("carPartsApp.services", []);
 
-    angular.module('carPartsApp', ['ngRoute', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages','ui.bootstrap','LocalStorageModule','ui.bootstrap'])
+    angular.module('carPartsApp', ['ngRoute', 'angular-growl', 'carPartsApp.controllers', 'carPartsApp.services','ngMessages','ui.bootstrap','LocalStorageModule','ui.bootstrap'])
   //  angular.module('carPartsApp', ['ngMessages']);
     
     // configure angular page router
-    .config(function($routeProvider) {
+    .config(function($routeProvider,growlProvider) {
 
         console.log("app.js init app config")
     	$routeProvider
@@ -33,7 +33,7 @@
     		})
             .when('/shop-cart', {
                 templateUrl : 'static/pages/shop-cart.html',
-                controller : 'SearchProductController as searchController'
+                controller : 'cartController as cartCtrl'
             })
 
             .when('/search/product-details/:id?', {
@@ -61,7 +61,16 @@
             })
 
             .otherwise({redirectTo: '/'});
-            })
+
+
+             // growlProvider
+
+            growlProvider.globalInlineMessages(true);
+            growlProvider.globalTimeToLive({success: 3600, error: -1, warning: 3000, info: 4000});
+            growlProvider.globalDisableCountDown(true);
+            growlProvider.globalReversedOrder(true);
+
+        });
 
 
 }(angular));

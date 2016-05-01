@@ -18,8 +18,8 @@
   
           </form> 
 
+          <div growl></div>
           
-
           <h2 class="sub-header"></h2>
           <div class="table-responsive">
             <table class="table table-striped"  >
@@ -46,7 +46,7 @@
                   <td>{{item.dimension}}</td>
                   <td>{{item.price}}</td>
                   <td ng-show="!searchController.isAdmin"> <a ng-click = "searchController.goTodetailsUrl(item.id)" class="btn btn_xs btn-info" role="button">Details</a> </td>
-                  <td ng-show="!searchController.isAdmin"> <a href="#" class="btn btn_xs btn-success" role="button">Add</a> </td>
+                  <td ng-show="!searchController.isAdmin"> <a ng-click = "searchController.addToCart(item.id)" class="btn btn_xs btn-success" role="button">Add</a> </td>
                 
 
                 </tr>
