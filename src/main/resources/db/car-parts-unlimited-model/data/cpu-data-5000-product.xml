@@ -7,6 +7,7 @@
         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
             <column name="NAME" value="Toyo tire"/>
             <column name="TYPE" value="24"/>
+            <column name="MANUFACTURER" value="Eneos"/>
             <column name="SERIAL_NUMBER" value="1234567-1234"/>
             <column name="DIMENSION" value="23x32x12"/>
             <column name="IMAGE_PATH" value="/static/img/toyo1.jpg"/>
@@ -22,6 +23,7 @@
         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
             <column name="NAME" value="Exhaust part"/>
             <column name="TYPE" value="14"/>
+            <column name="MANUFACTURER" value="Eneos"/>
             <column name="SERIAL_NUMBER" value="764124-1234"/>
             <column name="DIMENSION" value="23x32x12"/>
             <column name="IMAGE_PATH" value="/static/img/exhaust_part1.png"/>
