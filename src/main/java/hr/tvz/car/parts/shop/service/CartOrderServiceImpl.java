@@ -13,6 +13,7 @@ import hr.tvz.car.parts.shop.model.CartOrder;
 import hr.tvz.car.parts.shop.model.OrderProduct;
 import hr.tvz.car.parts.shop.model.enums.CartUpdateType;
 import hr.tvz.car.parts.shop.repository.CartOrderRepository;
+import hr.tvz.car.parts.shop.repository.OrderProductRepository;
 import hr.tvz.car.parts.shop.repository.UserRepository;
 import hr.tvz.car.parts.shop.repository.codebook.OrderStatusRepository;
 
@@ -21,16 +22,19 @@ import hr.tvz.car.parts.shop.repository.codebook.OrderStatusRepository;
 public class CartOrderServiceImpl implements CartOrderService {
 
     @Autowired
-    private CartOrderRepository   cartOrderRepository;
+    private CartOrderRepository    cartOrderRepository;
 
     @Autowired
-    private UserRepository        userRepository;
+    private UserRepository         userRepository;
 
     @Autowired
-    private OrderStatusRepository orderStatusRepository;
+    private OrderStatusRepository  orderStatusRepository;
 
     @Autowired
-    private ProductService        productService;
+    private ProductService         productService;
+
+    @Autowired
+    private OrderProductRepository orderProductRepository;
 
     @Override
     public CartOrder findUserCartDetails(Long userId) {
@@ -66,6 +70,7 @@ public class CartOrderServiceImpl implements CartOrderService {
                 OrderProduct orderProductAdd = new OrderProduct();
                 orderProductAdd.setOrder(cartOrder);
                 orderProductAdd.setProduct(productService.findProduct(productId));
+                orderProductRepository.save(orderProductAdd);
 
                 cartOrder.getOrderProductList().add(orderProductAdd);
             } else if (cartUpdateType.equals(CartUpdateType.DELETE)) {
