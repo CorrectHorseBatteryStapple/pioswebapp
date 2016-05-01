@@ -48,8 +48,8 @@ public class ProductServiceImpl implements ProductService {
         Product product = repository.findOne(id);
         if (product != null) {
             product.setActive(false);
+            repository.save(product);
         }
-        repository.save(product);
     }
 
 }
