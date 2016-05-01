@@ -58,7 +58,9 @@
 
 		vm.deleteItem = function(index){
 			var urlDelete = "/shop/product/delete/";
-			$http.delete(urlDelete + index);
+			var idToDelete = $scope.availableProducts[index].id
+			console.log('Deleting id', idToDelete)
+			$http.delete(urlDelete + idToDelete);
 
 			$scope.availableProducts.splice(index,1);
 
