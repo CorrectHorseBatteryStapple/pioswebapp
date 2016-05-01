@@ -15,7 +15,10 @@ public class CartOrderDto {
     private List<Product> cartProductList;
 
     public List<Product> getCartProductList() {
-        return cartProductList == null ? new ArrayList<Product>() : cartProductList;
+        if (cartProductList == null) {
+            this.cartProductList = new ArrayList<>();
+        }
+        return cartProductList;
     }
 
     public void setCartProductList(List<Product> cartProductList) {

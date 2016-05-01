@@ -22,7 +22,13 @@ public class CartOrderServiceImpl implements CartOrderService {
 
     @Override
     public void updateCart(CartOrderDto cartOrderDto) {
-        Long cartOrder = cartOrderDto.getCartOrderId();
+        Long cartOrderId = cartOrderDto.getCartOrderId();
+        if (cartOrderId == null) {
+            // new
+        } else {
+
+        }
+        cartOrderRepository.findOne(cartOrderId);
     }
 
 }

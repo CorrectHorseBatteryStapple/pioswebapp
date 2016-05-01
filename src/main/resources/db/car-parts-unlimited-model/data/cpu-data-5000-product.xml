@@ -9,7 +9,7 @@
             <column name="TYPE" value="24"/>
             <column name="SERIAL_NUMBER" value="1234567-1234"/>
             <column name="DIMENSION" value="23x32x12"/>
-            <column name="IMAGE_PATH" value="/static/img/toyo1.png"/>
+            <column name="IMAGE_PATH" value="/static/img/toyo1.jpg"/>
             <column name="STOCK_COUNT" value="125"/>
             <column name="SOLD_COUNT" value="12"/>
             <column name="FAVOURITE_COUNT" value="11"/>

@@ -22,7 +22,7 @@ public class CartOrderController {
     @Autowired
     private CartOrderService cartOrderService;
 
-    @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/details/{userId}", method = RequestMethod.GET)
     public @ResponseBody CartOrderDto getCartOrderList(@PathVariable Long userId) {
         // only 1 active cart order per user
         System.out.println("userId: " + userId + " requested /cart/details");
