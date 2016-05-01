@@ -12,7 +12,7 @@
 			<column name="TYPE" type="VARCHAR(50)" />
 			<column name="SERIAL_NUMBER" type="VARCHAR(50)" />
 			<column name="DIMENSION" type="VARCHAR(50)" />
-			<column name="IMAGE_PATH" type="VARCHAR(50)" />
+			<column name="IMAGE_PATH" type="VARCHAR(500)" />
 			<column name="STOCK_COUNT" type="BIGINT">
 				<constraints nullable="false"/>
 			</column>

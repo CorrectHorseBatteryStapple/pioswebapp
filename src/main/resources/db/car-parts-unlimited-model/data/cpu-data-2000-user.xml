@@ -41,7 +41,7 @@
             <column name="ID_ROLE" value="3"/>
         </insert>
         <insert schemaName="${schema.cpu}" tableName="USER">
-            <column name="USERNAME" value="matej@net.hr"/>
+            <column name="USERNAME" value="matej"/>
             <column name="PASSWORD" value="1234"/>
             <column name="FIRST_NAME" value="Matej"/>
             <column name="LAST_NAME" value="TVZ"/>

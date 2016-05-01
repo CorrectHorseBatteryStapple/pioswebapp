@@ -39,6 +39,7 @@ public class ProductServiceImpl implements ProductService {
         if (product.getId() == null) {
             product.setCarBrand(carBrandRepository.findOne(1L));
             product.setProductCategory(productCategoryRepository.findOne(1L));
+            product.setFavouriteCount(0L);
         }
         return repository.save(product);
     }
