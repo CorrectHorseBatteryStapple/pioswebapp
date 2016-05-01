@@ -56,9 +56,11 @@
 
 
 
-		vm.deleteItem = function(id){
+		vm.deleteItem = function(index){
 			var urlDelete = "/shop/product/delete/";
-			$http.get(urlDelete + id);
+			$http.delete(urlDelete + index);
+
+			$scope.availableProducts.splice(index,1);
 
 			$window.location.href = "#/admin";
 		}
