@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import hr.tvz.car.parts.shop.model.CartOrder;
 import hr.tvz.car.parts.shop.model.OrderProduct;
+import hr.tvz.car.parts.shop.model.enums.CartStatusType;
 import hr.tvz.car.parts.shop.model.enums.CartUpdateType;
 import hr.tvz.car.parts.shop.repository.CartOrderRepository;
 import hr.tvz.car.parts.shop.repository.OrderProductRepository;
@@ -45,14 +46,14 @@ public class CartOrderServiceImpl implements CartOrderService {
 
     @Override
     public void updateCart(Long userId, Long productId, CartUpdateType cartUpdateType) {
-        CartOrder cartOrder = cartOrderRepository.findByUserId(userId);
+        CartOrder cartOrder = cartOrderRepository.findByUserIdAndOrderStatusStatus(userId, CartStatusType.IN_CART.name());
 
         if (cartOrder == null) {
             // new cart order
             CartOrder newCartOrder = new CartOrder();
             newCartOrder.setUser(userRepository.findOne(userId));
             newCartOrder.setTimestamp(LocalDateTime.now());
-            newCartOrder.setOrderStatus(orderStatusRepository.findByStatus("IN_CART"));
+            newCartOrder.setOrderStatus(orderStatusRepository.findByStatus(CartStatusType.IN_CART.name()));
             cartOrderRepository.save(newCartOrder);
 
             OrderProduct orderProduct = new OrderProduct();
@@ -89,10 +90,12 @@ public class CartOrderServiceImpl implements CartOrderService {
 
     @Override
     public void confirmOrder(Long userId) {
-        CartOrder cartOrder = cartOrderRepository.findByUserId(userId);
-        cartOrder.setOrderStatus(orderStatusRepository.findByStatus("DONE"));
+        CartOrder cartOrder = cartOrderRepository.findByUserIdAndOrderStatusStatus(userId, CartStatusType.IN_CART.name());
+        if (cartOrder != null) {
+            cartOrder.setOrderStatus(orderStatusRepository.findByStatus(CartStatusType.DONE.name()));
+            cartOrderRepository.save(cartOrder);
+        }
 
-        cartOrderRepository.save(cartOrder);
     }
 
 }
