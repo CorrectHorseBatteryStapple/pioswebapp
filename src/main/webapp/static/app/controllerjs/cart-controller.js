@@ -49,6 +49,31 @@
 
 			}
 
+
+			vm.confirmOrder = function () {
+
+				var urlOrder = "/cart/confirmOrder/";
+
+				var userID = localStorageService.get("userId");
+
+				console.log('Confirm order zatrazen');	
+
+				$http.get(urlOrder + userID )
+				 .then(function successResponse(response){
+				  console.log("Confirm order success", response);
+
+					 $window.location.href="#/order";
+				  }),
+				
+				function errorResponce(response){
+				console.log("Confirm order error", response);
+
+				
+				}
+
+
+			}
+
 			
 
 

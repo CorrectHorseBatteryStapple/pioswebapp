@@ -34,6 +34,24 @@
 		getProductDetails(productID);
 
 
+		vm.editProduct = function() {
+
+			console.log("admin-edit-controller.js log",vm.product);
+
+			var urlEdit = "/shop/product/edit";
+
+			$http.post(urlEdit, vm.product).then(function successCallback(result) {
+					console.log("success: ", result.data)
+					$window.location.href="#/admin";
+					
+			}, function errorCallback(error) {
+					console.log("error: ", error)
+					
+			})
+
+
+
+		}
 
 		
 
