@@ -9,7 +9,7 @@
             <column name="TYPE" value="24"/>
             <column name="SERIAL_NUMBER" value="1234567-1234"/>
             <column name="DIMENSION" value="23x32x12"/>
-            <column name="IMAGE_PATH" value="/images/toyo-tire-24.png"/>
+            <column name="IMAGE_PATH" value="/static/img/toyo1.png"/>
             <column name="STOCK_COUNT" value="125"/>
             <column name="SOLD_COUNT" value="12"/>
             <column name="FAVOURITE_COUNT" value="11"/>
@@ -24,7 +24,7 @@
             <column name="TYPE" value="14"/>
             <column name="SERIAL_NUMBER" value="764124-1234"/>
             <column name="DIMENSION" value="23x32x12"/>
-            <column name="IMAGE_PATH" value="/images/exhaust-24.png"/>
+            <column name="IMAGE_PATH" value="/static/img/exhaust_part1.png"/>
             <column name="STOCK_COUNT" value="25"/>
             <column name="SOLD_COUNT" value="2"/>
             <column name="FAVOURITE_COUNT" value="1"/>
