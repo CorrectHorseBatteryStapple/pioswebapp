@@ -65,6 +65,7 @@ public class CartOrderServiceImpl implements CartOrderService {
             if (cartUpdateType.equals(CartUpdateType.ADD)) {
                 OrderProduct orderProductAdd = new OrderProduct();
                 orderProductAdd.setOrder(cartOrder);
+                orderProductAdd.setProduct(productService.findProduct(productId));
 
                 cartOrder.getOrderProductList().add(orderProductAdd);
             } else if (cartUpdateType.equals(CartUpdateType.DELETE)) {
@@ -76,8 +77,8 @@ public class CartOrderServiceImpl implements CartOrderService {
                         break;
                     }
                 }
-                cartOrderRepository.save(cartOrder);
             }
+            cartOrderRepository.save(cartOrder);
         }
     }
 

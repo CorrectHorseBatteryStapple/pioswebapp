@@ -5,7 +5,8 @@ public enum CartUpdateType {
     ADD, DELETE;
 
     public static CartUpdateType from(String updateType) {
-        if (ADD.name().equals(updateType)) {
+
+        if (ADD.name().equals(updateType.toUpperCase())) {
             return ADD;
         } else if (DELETE.name().equals(updateType.toUpperCase())) {
             return DELETE;
