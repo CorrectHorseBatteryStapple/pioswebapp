@@ -30,4 +30,10 @@ public class UserServiceImpl implements UserService {
         return repository.save(user);
     }
 
+    @Override
+    public String findEmailByUserId(Long userId) {
+        User user = repository.findOne(userId);
+        return user != null ? user.getUsername() : "";
+    }
+
 }

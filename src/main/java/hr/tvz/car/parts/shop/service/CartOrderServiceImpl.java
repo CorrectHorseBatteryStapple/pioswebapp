@@ -17,6 +17,7 @@ import hr.tvz.car.parts.shop.repository.CartOrderRepository;
 import hr.tvz.car.parts.shop.repository.OrderProductRepository;
 import hr.tvz.car.parts.shop.repository.UserRepository;
 import hr.tvz.car.parts.shop.repository.codebook.OrderStatusRepository;
+import hr.tvz.car.parts.shop.service.util.EmailService;
 
 @Service
 @Transactional
@@ -36,6 +37,9 @@ public class CartOrderServiceImpl implements CartOrderService {
 
     @Autowired
     private OrderProductRepository orderProductRepository;
+
+    @Autowired
+    private EmailService           emailService;
 
     @Override
     public CartOrder findUserCartDetails(Long userId) {
@@ -94,6 +98,7 @@ public class CartOrderServiceImpl implements CartOrderService {
         if (cartOrder != null) {
             cartOrder.setOrderStatus(orderStatusRepository.findByStatus(CartStatusType.DONE.name()));
             cartOrderRepository.save(cartOrder);
+            emailService.sendConfirmOrderEmail(userId);
         }
 
     }

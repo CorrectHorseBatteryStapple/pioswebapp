@@ -19,6 +19,7 @@ import hr.tvz.car.parts.shop.model.dto.SimpleCarPartBackendResponse;
 import hr.tvz.car.parts.shop.model.dto.UserDto;
 import hr.tvz.car.parts.shop.model.dtofactory.DtoFactory;
 import hr.tvz.car.parts.shop.service.UserService;
+import hr.tvz.car.parts.shop.service.util.EmailService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -27,7 +28,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class LoginController {
 
     @Autowired
-    private UserService userService;
+    private UserService  userService;
+
+    @Autowired
+    private EmailService emailService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody SimpleCarPartBackendResponse authenticateUser(@Valid @RequestBody LoginDto loginDto) throws ServletException {
@@ -57,11 +61,14 @@ public class LoginController {
         SimpleCarPartBackendResponse response = new SimpleCarPartBackendResponse();
         User tempUser = DtoFactory.createUserFrom(registrationDto);
         User savedUser = userService.save(tempUser);
+        boolean registrationSuccess = true;
+
         if (savedUser != null) {
-            // send mail..etc
             response.setStatusMessage("Registration successful.");
+            emailService.sendRegistrationEmail(savedUser.getUsername(), registrationSuccess);
         } else {
             response.setStatusMessage("Registration failed.");
+            emailService.sendRegistrationEmail(tempUser.getUsername(), !registrationSuccess);
         }
 
         return response;
