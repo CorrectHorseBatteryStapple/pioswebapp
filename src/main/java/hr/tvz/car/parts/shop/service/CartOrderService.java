@@ -9,4 +9,6 @@ public interface CartOrderService {
 
     void updateCart(Long userId, Long productId, CartUpdateType cartUpdateType);
 
+    void confirmOrder(Long userId);
+
 }

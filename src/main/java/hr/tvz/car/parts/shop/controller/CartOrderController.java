@@ -37,4 +37,12 @@ public class CartOrderController {
         return new SimpleCarPartBackendResponse();
     }
 
+    @RequestMapping(value = "/confirmOrder/{userId}", method = RequestMethod.GET)
+    public @ResponseBody SimpleCarPartBackendResponse completeOrder(@PathVariable Long userId) {
+        // only 1 active cart order per user
+        System.out.println("userId: " + userId + " requested /cart/confirmOrder");
+        cartOrderService.confirmOrder(userId);
+        return new SimpleCarPartBackendResponse();
+    }
+
 }

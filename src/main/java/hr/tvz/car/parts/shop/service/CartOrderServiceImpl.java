@@ -87,4 +87,12 @@ public class CartOrderServiceImpl implements CartOrderService {
         }
     }
 
+    @Override
+    public void confirmOrder(Long userId) {
+        CartOrder cartOrder = cartOrderRepository.findByUserId(userId);
+        cartOrder.setOrderStatus(orderStatusRepository.findByStatus("DONE"));
+
+        cartOrderRepository.save(cartOrder);
+    }
+
 }
