@@ -9,6 +9,7 @@
 			<column name="NAME" type="VARCHAR(50)">
 				<constraints nullable="false"/>
 			</column>
+			<column name="MANUFACTURER" type="VARCHAR(100)" />
 			<column name="TYPE" type="VARCHAR(50)" />
 			<column name="SERIAL_NUMBER" type="VARCHAR(50)" />
 			<column name="DIMENSION" type="VARCHAR(50)" />

@@ -22,6 +22,9 @@ public class Product {
     @Column(name = "NAME")
     private String          name;
 
+    @Column(name = "MANUFACTURER")
+    private String          manufacturer;
+
     @Column(name = "TYPE")
     private String          type;
 
@@ -182,6 +185,14 @@ public class Product {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
 }
