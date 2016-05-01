@@ -5,7 +5,7 @@
 
     <changeSet id="2016032800000-0" author="jk"> 
         <insert schemaName="${schema.cpu}" tableName="USER">
-            <column name="USERNAME" value="administrator@mail.com.test"/>
+            <column name="USERNAME" value="admin"/>
             <column name="PASSWORD" value="1234"/>
             <column name="FIRST_NAME" value="Admin"/>
             <column name="LAST_NAME" value="Administrator"/>
@@ -23,7 +23,7 @@
             <column name="ID_ROLE" value="2"/>
         </insert>
         <insert schemaName="${schema.cpu}" tableName="USER">
-            <column name="USERNAME" value="peroperic@mail.com.test"/>
+            <column name="USERNAME" value="pero"/>
             <column name="PASSWORD" value="1234"/>
             <column name="FIRST_NAME" value="Pero"/>
             <column name="LAST_NAME" value="Peric"/>

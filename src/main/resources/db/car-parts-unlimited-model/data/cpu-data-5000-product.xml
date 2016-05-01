@@ -15,6 +15,7 @@
             <column name="FAVOURITE_COUNT" value="11"/>
             <column name="RATING" value="3.54"/>
             <column name="PRICE" value="735.12"/>
+            <column name="ACTIVE" value="TRUE"/>
             <column name="ID_PRODUCT_CATEGORY" value="1"/>
             <column name="ID_CAR_BRAND" value="1"/>
         </insert>
@@ -29,6 +30,7 @@
             <column name="FAVOURITE_COUNT" value="1"/>
             <column name="RATING" value="2.79"/>
             <column name="PRICE" value="735.12"/>
+            <column name="ACTIVE" value="TRUE"/>
             <column name="ID_PRODUCT_CATEGORY" value="2"/>
             <column name="ID_CAR_BRAND" value="2"/>
         </insert>
