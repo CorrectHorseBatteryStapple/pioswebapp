@@ -72,6 +72,7 @@
 
 			$http.post(urlAdd, vm.formInfo).then(function successCallback(result) {
 					console.log("success: ", result.data)
+					$window.location.href="#/admin";
 					
 			}, function errorCallback(error) {
 					console.log("error: ", error)
