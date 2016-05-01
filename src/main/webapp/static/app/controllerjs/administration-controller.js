@@ -10,9 +10,6 @@
 
 		var vm = this;
 
-		vm.message = "Add new";
-	    vm.message2 = "item ";
-
 		vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
 		
 	    $scope.message = "This is search product page for signed in users";
@@ -39,7 +36,6 @@
 		vm.goTodetailsUrl = function(id){
 
 			
-
 			var url = "#/search/product-details/";
 
 			var urlFinal = url + id ;
@@ -48,8 +44,6 @@
 			//$location.path(urlFinal);
 
 			console.log("search controller ", urlFinal);
-
-
 
 
 		}
@@ -74,7 +68,7 @@
 
 			console.log("admin-controller.js logging log", vm.formInfo);
 
-			var urlAdd = "/product/edit";
+			var urlAdd = "/shop/product/edit";
 
 			$http.post(urlAdd, vm.formInfo).then(function successCallback(result) {
 					console.log("success: ", result.data)

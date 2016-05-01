@@ -8,13 +8,13 @@
 	
 		var vm = this;
 
-		vm.product = {}
+		vm.cart = {}
 
 		var getCart = function (){
 			$http.get('/cart/details/' + localStorageService.get("userId"))
 	        .then(function successResponse(response) {
 	        console.log("cart details result: ", response.data);
-	         vm.product = response.data;
+	         vm.cart = response.data;
 	        },
 
 	        function errorResponse(response){

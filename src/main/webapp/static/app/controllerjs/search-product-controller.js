@@ -51,12 +51,26 @@
 
 		vm.addToCart = function(id) {
 
-			var urlCart = "/update";
+			var urlCart = "/cart/update/";
 
-			growl.success("<b>Item </b> has been added to your cart.");
+			var userID = localStorageService.get("userId");
+
+			$http.get(urlCart + userID + "/" + id)
+			.then(function successResponse(response) {
+	        console.log("added to cart result: ", response.data);
+	         	growl.success("<b>Item </b> has been added to your cart.");
+	        },
+
+	        function errorResponse(response){
+	         console.log("cart add errorResponse: ", response);	
+	         growl.error("Error.");
+
+	        });
 
 
 		}
+			
+
 
 	}
 
