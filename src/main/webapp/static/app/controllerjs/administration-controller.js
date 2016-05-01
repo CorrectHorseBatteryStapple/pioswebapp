@@ -50,7 +50,20 @@
 			console.log("search controller ", urlFinal);
 
 
+
+
 		}
+
+
+
+		vm.deleteItem = function(id){
+			var urlDelete = "/product/delete";
+			$http.get(urlDelete + id);
+
+			$window.location.href = "#/admin";
+		}
+
+
 	}
 
 	administrationController.$inject = ['$scope','$location','$window','$http','localStorageService'];
