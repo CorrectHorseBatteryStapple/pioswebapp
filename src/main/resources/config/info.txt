@@ -1,0 +1,1 @@
+Create file application.properties in this folder (/src/main/resources/config) to override default properties
