@@ -17,37 +17,40 @@ public class Product {
     @Id
     @Column(name = "ID_PRODUCT")
     @GeneratedValue
-    private Long id;
+    private Long            id;
 
     @Column(name = "NAME")
-    private String name;
+    private String          name;
 
     @Column(name = "TYPE")
-    private String type;
+    private String          type;
 
     @Column(name = "SERIAL_NUMBER")
-    private String serialNumber;
+    private String          serialNumber;
 
     @Column(name = "DIMENSION")
-    private String dimension;
+    private String          dimension;
 
     @Column(name = "IMAGE_PATH")
-    private String imagePath;
+    private String          imagePath;
 
     @Column(name = "STOCK_COUNT")
-    private Long stockCount;
+    private Long            stockCount;
 
     @Column(name = "SOLD_COUNT")
-    private Long soldCount;
+    private Long            soldCount;
 
     @Column(name = "FAVOURITE_COUNT")
-    private Long favouriteCount;
+    private Long            favouriteCount;
 
     @Column(name = "RATING")
-    private BigDecimal rating;
+    private BigDecimal      rating;
 
     @Column(name = "PRICE")
-    private BigDecimal price;
+    private BigDecimal      price;
+
+    @Column(name = "ACTIVE")
+    private Boolean         active;
 
     @ManyToOne
     @JoinColumn(name = "ID_PRODUCT_CATEGORY")
@@ -55,12 +58,12 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "ID_CAR_BRAND")
-    private CarBrand carBrand;
+    private CarBrand        carBrand;
 
     public Product() {
         //
     }
-    
+
     public Product(String name, String type, String serialNumber, String dimension, BigDecimal price) {
         this.name = name;
         this.type = type;
@@ -171,6 +174,14 @@ public class Product {
 
     public void setRating(BigDecimal rating) {
         this.rating = rating;
+    }
+
+    public Boolean isActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
 }
