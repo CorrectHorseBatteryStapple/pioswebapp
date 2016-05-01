@@ -10,7 +10,9 @@
 
 		vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
 
-		$scope.product= {};
+		vm.product= {};
+
+
 
 		var productID = $route.current.params.id;
 
@@ -19,7 +21,7 @@
 			$http.get('/shop/product/' + productID)
 	        .then(function successResponse(response) {
 	        console.log("getProductsDetails result: ", response.data);
-	         $scope.product = response.data;
+	         vm.product = response.data;
 	        },
 
 	        function errorResponse(response){
