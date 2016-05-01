@@ -12,10 +12,10 @@ public class DtoFactory {
     public static CartOrderDto transformCartOrderToDto(CartOrder cartOrder) {
         CartOrderDto cartOrderDto = new CartOrderDto();
         if (cartOrder != null) {
-            cartOrderDto.setId(cartOrder.getId());
+            cartOrderDto.setCartOrderId(cartOrder.getId());
             cartOrderDto.setOrderStatus(cartOrder.getOrderStatus());
             cartOrderDto.setTimestamp(cartOrder.getTimestamp().toString());
-
+            cartOrderDto.setUserId(cartOrder.getUser().getId());
             for (OrderProduct orderProduct : cartOrder.getOrderProductList()) {
                 cartOrderDto.getCartProductList().add(orderProduct.getProduct());
             }
