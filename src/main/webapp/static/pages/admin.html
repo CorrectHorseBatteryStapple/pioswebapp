@@ -47,8 +47,8 @@
                   <td>{{item.price}}</td>
                  
                   
-                  <td ng-show="adminCtrl.isAdmin"> <a href="#" class="btn btn_xs btn-warning" role="button">Edit</a> </td>
-                  <td ng-show="adminCtrl.isAdmin"> <a href="#" class="btn btn_xs btn-danger" role="button">Remove</a> </td>
+                  <td ng-show="adminCtrl.isAdmin"> <button href="#" class="btn btn_xs btn-warning" >Edit</button> </td>
+                  <td ng-show="adminCtrl.isAdmin"> <button ng-click = "adminCtrl.deleteItem(item.id)" class="btn btn_xs btn-danger">Remove </button> </td>
 
                 </tr>
                 

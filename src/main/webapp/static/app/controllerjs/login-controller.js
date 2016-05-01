@@ -15,7 +15,7 @@
 
 				vm.loginData = {}
 				
-				vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
+				
 
                 vm.userLoggedIn= localStorageService.get("isLoggedIn");
                 vm.firstName = localStorageService.get("firstNameUser");
@@ -51,8 +51,11 @@
 	                         vm.firstName = localStorageService.get("firstNameUser");
                              vm.lastName = localStorageService.get("lastNameUser");
 
+
 	                         var role = response.data.data.role;
 	                          localStorageService.set("userRole", role);
+
+	                           vm.isAdmin = localStorageService.get("userRole")=="Administrator" ? true : false;
 
 	                          if(role == "Administrator"){
 
