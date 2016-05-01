@@ -1,1 +1,6 @@
 Create file application.properties in this folder (/src/main/resources/config) to override default properties
+
+i.e. 
+# Application properties override
+spring.mail.username=test@gmail.com
+spring.mail.password=test
