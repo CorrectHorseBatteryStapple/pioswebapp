@@ -77,7 +77,7 @@ public class CartOrderServiceImpl implements CartOrderService {
                 Iterator<OrderProduct> iterator = cartOrder.getOrderProductList().iterator();
                 while (iterator.hasNext()) {
                     OrderProduct orderProductToDelete = iterator.next();
-                    if (orderProductToDelete.getId().equals(productId)) {
+                    if (orderProductToDelete.getProduct().getId().equals(productId)) {
                         iterator.remove();
                         break;
                     }
