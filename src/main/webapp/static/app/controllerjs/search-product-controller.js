@@ -51,7 +51,7 @@
 
 		vm.addToCart = function(id) {
 
-			var urlCart = "/cart/update/";
+			var urlCart = "/cart/update/add/";
 
 			var userID = localStorageService.get("userId");
 

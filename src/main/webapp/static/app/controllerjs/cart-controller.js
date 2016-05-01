@@ -27,6 +27,9 @@
 	getCart();
 
 
+	
+
+
 }
 
 	cartController.$inject = ['$scope','$location','$window','$http','localStorageService','growl'];
