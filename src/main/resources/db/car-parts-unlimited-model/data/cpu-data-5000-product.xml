@@ -5,9 +5,9 @@
 
     <changeSet id="2016032600000-0" author="jk">
         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
-            <column name="NAME" value="Toyo tire"/>
+            <column name="NAME" value="Toyo tyre"/>
             <column name="TYPE" value="24"/>
-            <column name="MANUFACTURER" value="Eneos"/>
+            <column name="MANUFACTURER" value="TOYO"/>
             <column name="SERIAL_NUMBER" value="1234567-1234"/>
             <column name="DIMENSION" value="23x32x12"/>
             <column name="IMAGE_PATH" value="/static/img/toyo1.jpg"/>
@@ -23,7 +23,7 @@
         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
             <column name="NAME" value="Exhaust part"/>
             <column name="TYPE" value="14"/>
-            <column name="MANUFACTURER" value="Eneos"/>
+            <column name="MANUFACTURER" value="POLCAR"/>
             <column name="SERIAL_NUMBER" value="764124-1234"/>
             <column name="DIMENSION" value="23x32x12"/>
             <column name="IMAGE_PATH" value="/static/img/exhaust_part1.png"/>
@@ -32,6 +32,150 @@
             <column name="FAVOURITE_COUNT" value="1"/>
             <column name="RATING" value="2.79"/>
             <column name="PRICE" value="735.12"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Eneos oil"/>
+            <column name="TYPE" value="0W-20"/>
+            <column name="MANUFACTURER" value="ENEOS"/>
+            <column name="SERIAL_NUMBER" value="OW-20-1234"/>
+            <column name="DIMENSION" value="1l"/>
+            <column name="IMAGE_PATH" value="/static/img/ene_0w20-fully-synth.jpg"/>
+            <column name="STOCK_COUNT" value="233"/>
+            <column name="SOLD_COUNT" value="211"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="4.79"/>
+            <column name="PRICE" value="35.12"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Belt"/>
+            <column name="TYPE" value="14"/>
+            <column name="MANUFACTURER" value="AE"/>
+            <column name="SERIAL_NUMBER" value="belt-ox345y"/>
+            <column name="DIMENSION" value="14x16"/>
+            <column name="IMAGE_PATH" value="/static/img/belt1.jpg"/>
+            <column name="STOCK_COUNT" value="12"/>
+            <column name="SOLD_COUNT" value="11"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="3.89"/>
+            <column name="PRICE" value="27.52"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Eneos oil"/>
+            <column name="TYPE" value="Sustina 0W-50"/>
+            <column name="MANUFACTURER" value="ENEOS"/>
+            <column name="SERIAL_NUMBER" value="OW-50-4234"/>
+            <column name="DIMENSION" value="4l"/>
+            <column name="IMAGE_PATH" value="/static/img/eneos_sustina_0W50.jpg"/>
+            <column name="STOCK_COUNT" value="342"/>
+            <column name="SOLD_COUNT" value="222"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="4.84"/>
+            <column name="PRICE" value="74.52"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Belt"/>
+            <column name="TYPE" value="16"/>
+            <column name="MANUFACTURER" value="DAYCO"/>
+            <column name="SERIAL_NUMBER" value="belt-ox315yX"/>
+            <column name="DIMENSION" value="14x16"/>
+            <column name="IMAGE_PATH" value="/static/img/belt2.jpg"/>
+            <column name="STOCK_COUNT" value="16"/>
+            <column name="SOLD_COUNT" value="14"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="3.99"/>
+            <column name="PRICE" value="28.72"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Castrol oil"/>
+            <column name="TYPE" value="EDGE"/>
+            <column name="MANUFACTURER" value="CASTROL"/>
+            <column name="SERIAL_NUMBER" value="EDGE-423432"/>
+            <column name="DIMENSION" value="4l"/>
+            <column name="IMAGE_PATH" value="/static/img/oilCastrol.jpg"/>
+            <column name="STOCK_COUNT" value="24"/>
+            <column name="SOLD_COUNT" value="27"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="4.34"/>
+            <column name="PRICE" value="68.32"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Fuel filter"/>
+            <column name="TYPE" value="F-13-82"/>
+            <column name="MANUFACTURER" value="BOSCH"/>
+            <column name="SERIAL_NUMBER" value="F-1276872"/>
+            <column name="DIMENSION" value="12X14"/>
+            <column name="IMAGE_PATH" value="/static/img/fuel_filter1.jpg"/>
+            <column name="STOCK_COUNT" value="22"/>
+            <column name="SOLD_COUNT" value="22"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="4.24"/>
+            <column name="PRICE" value="24.53"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Oil filter"/>
+            <column name="TYPE" value="CAF-100-802P"/>
+            <column name="MANUFACTURER" value="CHAMPION"/>
+            <column name="SERIAL_NUMBER" value="F-1276872"/>
+            <column name="DIMENSION" value="12X18"/>
+            <column name="IMAGE_PATH" value="/static/img/oil_filter1.jpg"/>
+            <column name="STOCK_COUNT" value="33"/>
+            <column name="SOLD_COUNT" value="33"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="4.44"/>
+            <column name="PRICE" value="26.23"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+         <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Fuel filter"/>
+            <column name="TYPE" value="W-11-32"/>
+            <column name="MANUFACTURER" value="WIX"/>
+            <column name="SERIAL_NUMBER" value="W-1155232"/>
+            <column name="DIMENSION" value="14X18"/>
+            <column name="IMAGE_PATH" value="/static/img/fuel_filter2.jpg"/>
+            <column name="STOCK_COUNT" value="52"/>
+            <column name="SOLD_COUNT" value="32"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="4.24"/>
+            <column name="PRICE" value="33.22"/>
+            <column name="ACTIVE" value="TRUE"/>
+            <column name="ID_PRODUCT_CATEGORY" value="2"/>
+            <column name="ID_CAR_BRAND" value="2"/>
+        </insert>
+        <insert schemaName="${schema.cpu}" tableName="PRODUCT">
+            <column name="NAME" value="Oil filter"/>
+            <column name="TYPE" value="W-12-44"/>
+            <column name="MANUFACTURER" value="WIX"/>
+            <column name="SERIAL_NUMBER" value="W-1155224"/>
+            <column name="DIMENSION" value="12X18"/>
+            <column name="IMAGE_PATH" value="/static/img/oil_filter2.jpg"/>
+            <column name="STOCK_COUNT" value="46"/>
+            <column name="SOLD_COUNT" value="86"/>
+            <column name="FAVOURITE_COUNT" value="1"/>
+            <column name="RATING" value="4.11"/>
+            <column name="PRICE" value="35.23"/>
             <column name="ACTIVE" value="TRUE"/>
             <column name="ID_PRODUCT_CATEGORY" value="2"/>
             <column name="ID_CAR_BRAND" value="2"/>

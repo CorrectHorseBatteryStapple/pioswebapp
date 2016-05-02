@@ -17,6 +17,14 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label for="manufacturer" class="col-sm-3 control-label">Manufacturer:</label>
+                <div ng-messages="addForm.manufacturer.$error" class="col-sm-9">
+                  <input type="text" class="form-control" name="manufacturer" id="manufacturer" placeholder="Manufacturer" ng-model="adminCtrl.formInfo.manufacturer" required / >
+                     
+                </div>
+              </div>
+
                <div class="form-group">
                 <label for="type" class="col-sm-3 control-label">Type:</label>
                 <div ng-messages="addForm.type.$error" class="col-sm-9">
@@ -52,7 +60,7 @@
               <div class="form-group">
                 <label for="stockCount" class="col-sm-3 control-label">Stock count:</label>
                 <div ng-messages="addForm.stockCount.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="stockCount" id="stockCount" placeholder="Stock count" ng-model="adminCtrl.formInfo.stockCount" required / >
+                  <input type="number" class="form-control" min = "0" name="stockCount" id="stockCount" placeholder="Stock count" ng-model="adminCtrl.formInfo.stockCount" required / >
                      
                 </div>
               </div>
@@ -60,7 +68,7 @@
               <div class="form-group">
                 <label for="soldCount" class="col-sm-3 control-label">Sold count:</label>
                 <div ng-messages="addForm.soldCount.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="soldCount" id="soldCount" placeholder="Sold count" ng-model="adminCtrl.formInfo.soldCount" required / >
+                  <input type="number" class="form-control" min="0" name="soldCount" id="soldCount" placeholder="Sold count" ng-model="adminCtrl.formInfo.soldCount" required / >
                      
                 </div>
               </div>
@@ -68,23 +76,34 @@
               <div class="form-group">
                 <label for="rating" class="col-sm-3 control-label">Rating:</label>
                 <div ng-messages="addForm.rating.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="rating" id="rating" placeholder="Rating" ng-model="adminCtrl.formInfo.rating" required / >
+                  <input type="number" class="form-control" min="1" max="5" disableArrows name="rating" id="rating" placeholder="Rating" ng-model="adminCtrl.formInfo.rating" required / >
                      
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="price" class="col-sm-3 control-label">Price:</label>
+             
                 <div ng-messages="addForm.price.$error" class="col-sm-9">
-                  <input type="text" class="form-control" name="price" id="price" placeholder="Price" ng-model="adminCtrl.formInfo.price" required / >
-                     
+                 <input type="number" class="form-control" name="price" id="price" placeholder="Price" min="0.1" ng-model="adminCtrl.formInfo.price" required / >
+                    <!--    <input class="form-control" ng-model="adminCtrl.formInfo.price" type="number"
+                     ng-model="{string}"
+                     [name="{string}"]
+                     [min="{string}"]
+                     [max="{string}"]
+                     [required]
+                     [ng-required="{string}"]
+                     [ng-minlength="{number}"]
+                     [ng-maxlength="{number}"]
+                     [ng-pattern="{string}"]
+                     [ng-change="{string}"]>-->
                 </div>
               </div>
                
               
               <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                  <button ng-disabled="addNewItemForm.$invalid" type="submit" ng-click="adminCtrl.addItem()" class="btn btn-primary">Add </button>
+                  <button ng-disabled="addNewItemForm.$invalid" ng-click="adminCtrl.addItem()" class="btn btn-primary">Add </button>
                 </div>
               </div>
 
