@@ -35,7 +35,7 @@
 
 	                    console.log("success", response)
                     	// JWT token
-                    	//$http.defaults.headers.common.Authorization = 'Bearer ' + response.data.token;
+                    	$http.defaults.headers.common.Authorization = 'Bearer ' + response.data.token;
 	                    if(response.data.data == null) {
 	                        $window.alert("Korisnik ne postoji");
 	                        return;
@@ -82,9 +82,9 @@
 
             vm.logoutUser=function(){
 
-                    
                     vm.userLoggedIn=null;
                     localStorageService.clearAll();
+                    delete $http.defaults.headers.common.Authorization;
                     $window.location.href="/#";
 
                 }  

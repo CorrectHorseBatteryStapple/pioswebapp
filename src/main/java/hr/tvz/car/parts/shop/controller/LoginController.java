@@ -18,6 +18,7 @@ import hr.tvz.car.parts.shop.model.dto.RegistrationDto;
 import hr.tvz.car.parts.shop.model.dto.SimpleCarPartBackendResponse;
 import hr.tvz.car.parts.shop.model.dto.UserDto;
 import hr.tvz.car.parts.shop.model.dtofactory.DtoFactory;
+import hr.tvz.car.parts.shop.model.enums.JWTSignature;
 import hr.tvz.car.parts.shop.service.UserService;
 import hr.tvz.car.parts.shop.service.util.EmailService;
 import io.jsonwebtoken.Jwts;
@@ -46,7 +47,7 @@ public class LoginController {
             simpleCarPartBackendResponse.setData(userDto);
 
             String jwtToken = Jwts.builder().setSubject(tempUser.getFirstname()).claim("roles", tempUser.getRole().getName()).setIssuedAt(new Date())
-                    .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
+                    .signWith(SignatureAlgorithm.HS256, JWTSignature.KEY.getValue()).compact();
             System.out.println("JWT token: " + jwtToken);
             simpleCarPartBackendResponse.setToken(jwtToken);
         } else {

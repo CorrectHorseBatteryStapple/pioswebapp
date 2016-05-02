@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.filter.GenericFilterBean;
 
+import hr.tvz.car.parts.shop.model.enums.JWTSignature;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
@@ -28,7 +29,7 @@ public class JwtFilter extends GenericFilterBean {
         final String token = authHeader.substring(7); // The part after "Bearer "
 
         try {
-            final Claims claims = Jwts.parser().setSigningKey("secretkey").parseClaimsJws(token).getBody();
+            final Claims claims = Jwts.parser().setSigningKey(JWTSignature.KEY.getValue()).parseClaimsJws(token).getBody();
             request.setAttribute("claims", claims);
         } catch (final SignatureException e) {
             throw new ServletException("Invalid token.");
