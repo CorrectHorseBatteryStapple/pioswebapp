@@ -7,11 +7,13 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "hr.tvz.car.parts.shop" })
 @EnableJpaRepositories(basePackages = { "hr.tvz.car.parts.shop.repository" })
-@EntityScan(basePackages = {"hr.tvz.car.parts.shop.model"})
+@EntityScan(basePackages = { "hr.tvz.car.parts.shop.model" })
+@EnableAsync
 public class CarPartsShopApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

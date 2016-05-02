@@ -57,9 +57,12 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public SimpleCarPartBackendResponse registerUser2(@Valid @RequestBody RegistrationDto registrationDto) {
+    public SimpleCarPartBackendResponse registerUser(@Valid @RequestBody RegistrationDto registrationDto) throws ServletException {
         SimpleCarPartBackendResponse response = new SimpleCarPartBackendResponse();
         User tempUser = DtoFactory.createUserFrom(registrationDto);
+        if (userService.findUserByEmail(tempUser.getUsername()) != null) {
+            throw new ServletException("Registration failed. - Korisnik sa istim emailom vec postoji.");
+        }
         User savedUser = userService.save(tempUser);
         boolean registrationSuccess = true;
 

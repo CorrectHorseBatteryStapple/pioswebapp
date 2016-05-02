@@ -36,4 +36,9 @@ public class UserServiceImpl implements UserService {
         return user != null ? user.getUsername() : "";
     }
 
+    @Override
+    public User findUserByEmail(String username) {
+        return repository.findByUsername(username);
+    }
+
 }
