@@ -24,7 +24,7 @@
 
 	    }
 
-	getCart();
+			getCart();
 
 
 		vm.removeItemFromCart = function(productID,index) {
